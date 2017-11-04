@@ -62,6 +62,35 @@
 
         <thead>
         <tr>
+          <th class="teal-text text-accent-4">Fecha:<th>
+          <th class="teal-text text-accent-4">Sintomas:</th>
+          <th class="teal-text text-accent-4">Notas:</th>
+          <th class="teal-text text-accent-4">Peso:</th>
+          <th class="teal-text text-accent-4">Estatura:</th>
+          <th class="teal-text text-accent-4">Diagnóstico:</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% _.each(historias, function (historias){ %>
+        <tr data-id="<%= historias.id %>" data-model="alergia" >
+          <td><%= historias.fechaHist %></td>
+          <td><%= historias.sintomas %></td>
+          <td><%= historias.notas %></td>
+          <td><%= historias.peso %> Kg.</td>
+          <td><%= historias.estatura %> cm.</td>
+          <td><%= historias.diagnostico %></td>
+          <td>
+            <a href="/Historia/bye/<%= historias.id %>" class="material-icons teal-text text-accent-4">delete</a>
+          </td>
+        </tr>
+        </tbody>
+        <% })%>
+      </table>
+
+      <table class="highlight centered">
+
+        <thead>
+        <tr>
           <th class="teal-text text-accent-4">Alergia a:</th>
         </tr>
         </thead>
@@ -75,15 +104,15 @@
           </td>
         </tr>
         </tbody>
+        <% })%>
       </table>
 
       <div class="row">
         <div class="col s12 m12 l12 center">
-          <a href="/Alergia/new/<%= alergias.afectado %>" class="btn waves-effect waves-light teal accent-4" type="submit" name="action">Nueva alergia</a>
+          <a href="/Alergia/nuevo/<%= alergias.afectado %>" class="btn waves-effect waves-light teal accent-4" type="submit" name="action">Nueva alergia</a>
         </div>
 
       </div>
-      <% })%>
       <table class="highlight centered">
 
         <thead>

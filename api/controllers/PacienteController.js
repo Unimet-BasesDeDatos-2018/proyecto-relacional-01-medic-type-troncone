@@ -11,10 +11,15 @@ module.exports = {
     Paciente.findOne(req.param('id')).exec(function (err, paciente) {
       Alergia.find({afectado: req.param('id')}).exec(function (err, alergia) {
         Telefono.find({persona: req.param('id')}).exec(function (err, telefono) {
-          res.view({
-            paciente: paciente,
-            alergias: alergia,
-            telefonos: telefono
+          Tiene.find({paciente: req.param('id')}).exec(function(err, tiene) {
+            Historia.find({id: tiene[0].historia}).exec(function (err, historia) {
+              res.view({
+                paciente: paciente,
+                alergias: alergia,
+                telefonos: telefono,
+                historias: historia
+              });
+            });
           });
         });
       });

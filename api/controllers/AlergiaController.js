@@ -7,11 +7,21 @@
 
 module.exports = {
 
-  'new': function(req, res) {
+  nuevo: function(req, res) {
     Alergia.find({afectado: req.param('id')}).exec(function (err, alergia) {
       res.view({
-        alergia: alergia[0]
+        alergia: alergia
       });
+    });
+  },
+
+  crear: function(req, res) {
+    Alergia.create({
+      afectado: req.param('afectado'),
+      alergia: req.param('alergia')
+    }).exec( function (err, alergia) {
+      if (err) sails.log(err);
+      res.redirect('/Paciente/show/'+alergia.afectado)
     });
   },
 

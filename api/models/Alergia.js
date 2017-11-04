@@ -16,7 +16,7 @@ module.exports = {
   attributes: {
 
     alergia: {
-      type: 'integer',
+      type: 'string',
       required: true,
       size: 100,
       columnName: 'Alergias'

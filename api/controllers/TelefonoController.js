@@ -9,7 +9,6 @@ module.exports = {
 
   nuevo: function(req, res) {
     Telefono.find({persona: req.param('id')}).exec(function (err, telefono) {
-      sails.log(telefono)
       res.view({
         telefono: telefono
       });

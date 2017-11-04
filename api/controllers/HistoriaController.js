@@ -13,7 +13,8 @@ module.exports = {
       if (err) sails.log(err);
       return;
     }));
-  }
+  },
+
 
 };
 

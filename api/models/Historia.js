@@ -23,7 +23,7 @@ module.exports = {
     fechaHist: {
       type: 'date',
       required: true,
-      columnName: 'FechaHist'
+      columnName: 'FechaHis'
     },
 
     sintomas: {
@@ -56,8 +56,7 @@ module.exports = {
       columnName: 'Diagnostico',
       size: 100,
       required: true
-    }
-
+    },
   }
 
 

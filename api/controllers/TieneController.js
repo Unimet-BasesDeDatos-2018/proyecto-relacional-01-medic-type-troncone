@@ -6,6 +6,12 @@
  */
 
 module.exports = {
-	
+
+  delete: function(req, res) {
+    Tiene.destroy({paciente: req.param('id')}).exec( function(err, tiene) {
+      return tiene;
+    })
+  }
+
 };
 

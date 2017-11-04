@@ -91,32 +91,7 @@ module.exports = {
       size: 60,
       required: true,
       columnName: 'Estado'
-    },
-
-    doctores: {
-      collection: 'medico',
-      through: 'tiene',
-      required: true
-    },
-
-    historias: {
-      collection: 'historia',
-      through: 'tiene',
-      required: true
-    },
-
-    alergias: {
-      collection: 'alergia',
-      via: 'afectado',
-      through: 'alergia'
-    },
-
-    telefonos: {
-      collection: 'telefono',
-      via: 'persona',
-      through: 'telefono'
     }
-
   }
 };
 

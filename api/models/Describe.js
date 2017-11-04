@@ -1,5 +1,5 @@
 /**
- * Telefono.js
+ * Describe.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
@@ -8,26 +8,24 @@
 module.exports = {
 
   connection: 'myDataBase',
-  tableName: 'telefonos',
+  tableName: 'describe_',
   autoPK: false,
   autoCreatedAt: false,
   autoUpdatedAt: false,
 
   attributes: {
 
-    telefono: {
-      type: 'string',
-      required: true,
-      size: 20,
-      columnName: 'Telefono'
+    historia: {
+      type: 'integer',
+      primaryKey: true,
+      columnName: 'Historia_idHistoria'
     },
 
-    persona: {
+    patologia: {
       type: 'integer',
-      required: true,
-      primaryKey: true,
-      columnName: 'Paciente_idPaciente'
+      columnName: 'Patologia_idPatologia'
     }
+
   }
 };
 

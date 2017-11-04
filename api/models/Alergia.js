@@ -23,7 +23,9 @@ module.exports = {
     },
 
     afectado: {
-      model: 'paciente',
+      type: 'integer',
+      required: true,
+      primaryKey: true,
       columnName: 'Paciente_idPaciente'
     }
 

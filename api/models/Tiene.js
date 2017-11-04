@@ -14,20 +14,24 @@ module.exports = {
   autoUpdatedAt: false,
 
   attributes: {
-    idPaciente: {
-      model: 'paciente',
+
+    paciente: {
+      type: 'integer',
+      primaryKey: true,
       columnName: 'Paciente_idPaciente'
     },
 
-    idMedico: {
-      model: 'medico',
+    medico: {
+      type: 'integer',
       columnName: 'Medico_idMedico'
     },
 
-    idHistoria: {
-      model: 'historia',
+    historia: {
+      type: 'integer',
+      primaryKey: true,
       columnName: 'Historia_idHistoria'
     }
+
   }
 };
 

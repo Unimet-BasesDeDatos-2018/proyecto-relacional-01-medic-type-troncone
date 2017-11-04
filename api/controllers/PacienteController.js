@@ -6,6 +6,40 @@
  */
 
 module.exports = {
-	
+
+  show: function (req, res) {
+    Paciente.findOne(req.param('id')).exec(function (err, paciente) {
+      Alergia.find({afectado: req.param('id')}).exec(function (err, alergia) {
+        Telefono.find({persona: req.param('id')}).exec(function (err, telefono) {
+          res.view({
+            paciente: paciente,
+            alergias: alergia,
+            telefonos: telefono
+          });
+        });
+      });
+    });
+  },
+
+
+  delete: function (req, res) {
+
+  var historiasABorrar = Tiene.query('select Historia_idHistoria from tiene where Paciente_idPaciente = ' + req.param('id'),
+    function (err, historia) {
+      historiasABorrar = JSON.parse(JSON.stringify(historia));
+      sails.controllers.alergia.delete(req, res);
+      sails.controllers.telefono.delete(req, res);
+      sails.controllers.describe.delete(historiasABorrar, res);
+      sails.controllers.tiene.delete(req, res);
+      sails.controllers.historia.delete(historiasABorrar, res);
+      Paciente.destroy(req.param('id')).exec(function (err) {
+        if (err) {
+          sails.log(err)
+        }
+        res.redirect('back');
+      });
+
+    });
+  },
 };
 

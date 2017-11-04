@@ -33,11 +33,6 @@ module.exports = {
       size: 100,
       columnName: 'Especialidad'
     },
-
-    pacientes: {
-      collection: 'paciente',
-      through: 'tiene'
-    }
   }
 };
 

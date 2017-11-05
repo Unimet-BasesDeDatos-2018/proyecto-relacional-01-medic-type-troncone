@@ -72,21 +72,25 @@
         </thead>
         <tbody>
         <% _.each(historias, function (historias){ %>
-        <tr data-id="<%= historias.id %>" data-model="alergia" >
-          <td><%= historias.fechaHist %></td>
-          <td><%= historias.sintomas %></td>
-          <td><%= historias.notas %></td>
-          <td><%= historias.peso %> Kg.</td>
-          <td><%= historias.estatura %> cm.</td>
-          <td><%= historias.diagnostico %></td>
+        <tr data-id="<%= historias.idHistoria %>" data-model="alergia" >
+          <td><%= historias.FechaHis %></td>
+          <td><%= historias.Sintomas %></td>
+          <td><%= historias.Notas %></td>
+          <td><%= historias.Peso %> Kg.</td>
+          <td><%= historias.Estatura %> m.</td>
+          <td><%= historias.Diagnostico %></td>
           <td>
-            <a href="/Historia/bye/<%= historias.id %>" class="material-icons teal-text text-accent-4">delete</a>
+            <a href="/Historia/bye/<%= historias.idHistoria %>" class="material-icons teal-text text-accent-4">delete</a>
           </td>
         </tr>
         </tbody>
         <% })%>
       </table>
-
+      <div class="row">
+        <div class="col s12 m12 l12 center">
+          <a href="/Historia/nuevo/<%= paciente.id %>+<%= medico.id %>" class="btn waves-effect waves-light teal accent-4" type="submit" name="action">Nueva historia</a>
+        </div>
+      </div>
       <table class="highlight centered">
 
         <thead>
@@ -109,9 +113,8 @@
 
       <div class="row">
         <div class="col s12 m12 l12 center">
-          <a href="/Alergia/nuevo/<%= alergias.afectado %>" class="btn waves-effect waves-light teal accent-4" type="submit" name="action">Nueva alergia</a>
+          <a href="/Alergia/nuevo/<%= paciente.id %>" class="btn waves-effect waves-light teal accent-4" type="submit" name="action">Nueva alergia</a>
         </div>
-
       </div>
       <table class="highlight centered">
 

@@ -8,9 +8,9 @@
 module.exports = {
 
   nuevo: function(req, res) {
-    Telefono.find({persona: req.param('id')}).exec(function (err, telefono) {
+    Paciente.find({id: req.param('id')}).exec(function (err, paciente) {
       res.view({
-        telefono: telefono
+        telefono: paciente
       });
     });
   },

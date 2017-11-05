@@ -16,7 +16,8 @@ module.exports = {
           'on paciente.idPaciente = hola.Paciente_idPaciente', function(err, paciente) {
           var aux = JSON.parse(JSON.stringify(paciente));
           res.view({
-            paciente: aux
+            paciente: aux,
+            medico: medico[0]
           })
         })
       }

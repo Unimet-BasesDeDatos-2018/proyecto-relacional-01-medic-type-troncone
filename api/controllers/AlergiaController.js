@@ -8,9 +8,10 @@
 module.exports = {
 
   nuevo: function(req, res) {
-    Alergia.find({afectado: req.param('id')}).exec(function (err, alergia) {
+    Paciente.findOne(req.param('id')).exec(function (err, paciente) {
+      if (err) sails.log(err);
       res.view({
-        alergia: alergia
+        alergia: paciente
       });
     });
   },

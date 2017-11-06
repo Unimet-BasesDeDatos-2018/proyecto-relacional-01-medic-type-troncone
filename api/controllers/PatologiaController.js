@@ -35,6 +35,21 @@ module.exports = {
         res.redirect('back');
       });
     });
+  },
+
+  editar: function(req, res) {
+    Patologia.findOne(req.param('id')).exec(function(err, patologia){
+      res.view({
+        patologia: patologia
+      });
+    });
+  },
+
+  cambiar: function(req, res) {
+    Patologia.update(req.param('id'), req.params.all()).exec(function(err, patologia){
+      if (err) sails.log(err);
+      res.redirect('back');
+    });
   }
 
 };

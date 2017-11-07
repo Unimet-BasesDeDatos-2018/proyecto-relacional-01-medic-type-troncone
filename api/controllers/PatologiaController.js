@@ -8,7 +8,6 @@
 module.exports = {
 
   index: function(req, res) {
-
     Patologia.find().exec(function(err, patologia){
       if (err) sails.log(patologia);
       res.view({
@@ -50,7 +49,18 @@ module.exports = {
       if (err) sails.log(err);
       res.redirect('back');
     });
-  }
+  },
 
-};
-
+    frecuencia: function(req, res) {
+      var query = Patologia.query("SELECT patologia.NombrePat AS Nombre, COUNT(Describe_.Patologia_idPatologia) AS Frecuencia "
+      + "From Patologia "
+      + "INNER JOIN describe_ "
+      + "ON patologia.idPatologia = Describe_.Patologia_idPatologia "
+      + "group by patologia.NombrePat;", function(err, patologia){
+      if (err) sails.log(err);
+      res.view({
+      patologia: patologia,
+      });
+    });
+  },
+}

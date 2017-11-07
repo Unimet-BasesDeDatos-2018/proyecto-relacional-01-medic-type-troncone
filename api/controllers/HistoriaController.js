@@ -53,7 +53,7 @@ module.exports = {
   },
 
   editar: function(req, res) {
-    Historia.find(req.params.all(), function(err, historia){
+    Historia.find(req.param('id'), function(err, historia){
       res.view({
         historia: historia
       })
@@ -68,43 +68,29 @@ module.exports = {
   },
 
   bye: function(req, res) {
-    Tiene.find({historia: req.param('id')}).exec(function (err, tiene) {
-      Tiene.destroy({
-        paciente: tiene[0].paciente,
-        medico: tiene[0].medico,
-        historia: tiene[0].historia
-      }).exec( function (err) {
-        if (err) sails.log(err);
-        Describe.find(req.param('id')).exec(function (err, describe){
-          if (JSON.stringify(describe).length > 2) {
-            Describe.destroy({
-              historia: describe[0].historia,
-              patologia: describe[0].patologia
-            }).exec(function (err) {
-              Historia.destroy(req.params.all(), function (err) {
-                if (err) sails.log(err);
-              });
-            });
-          }
-          else {
-            Historia.destroy(req.params.all(), function (err) {
+    Tiene.find(req.param('id')).exec(function(err, tiene){
+      if (err) sails.log(err);
+      if (tiene) {
+        Tiene.destroy({historia: req.param('id')}).exec(function(err, tiene2){
+          if (err) sails.log(err);
+        });
+        Describe.find({historia: req.param('id')}).exec(function(err, describe){
+          if (err) sails.log(err);
+          if (describe) {
+            Describe.destroy({historia: req.param('id')}).exec(function(err, describe2){
               if (err) sails.log(err);
             });
           }
+          Historia.destroy(req.param('id')).exec(function(err, historia){
+            if (err) sails.log(err);
+            res.redirect('back');
+          });
         });
-      });
+      }
+      else {
+        res.redirect('/500');
+      }
     });
-
-    Describe.find({historia: req.param('id')}).exec( function(err, describe) {
-      _.forEach(describe[0], Describe.destroy({historia: describe.historia} , function(err)  {
-        if (err) sails.log(err);
-      }));
-    });
-    Historia.destroy({id: req.param('id')}).exec(function(err) {
-      if (err) sails.log(err);
-    });
-    res.redirect('back');
-  }
-
+  },
 };
 

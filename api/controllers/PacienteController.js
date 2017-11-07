@@ -84,6 +84,10 @@ module.exports = {
                 }
               }
               var aux2 = Historia.query('select * from historia where '+aux, function(err, result){
+                if (!result) {
+                  res.redirect('/');
+                  return;
+                }
                 aux2 = JSON.parse(JSON.stringify(result));
                 aux2 = aux2;
                 res.view({
@@ -130,6 +134,7 @@ module.exports = {
       res.redirect('back');
     });
   },
+
   editar: function(req, res) {
     Paciente.findOne(req.param('id')).exec(function(err, paciente){
       res.view({

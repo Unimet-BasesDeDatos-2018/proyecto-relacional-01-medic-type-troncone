@@ -62,12 +62,13 @@
 
         <thead>
         <tr>
-          <th class="teal-text text-accent-4">Fecha:<th>
+          <th class="teal-text text-accent-4">Fecha:</th>
           <th class="teal-text text-accent-4">Sintomas:</th>
           <th class="teal-text text-accent-4">Notas:</th>
           <th class="teal-text text-accent-4">Peso:</th>
           <th class="teal-text text-accent-4">Estatura:</th>
           <th class="teal-text text-accent-4">Diagnóstico:</th>
+          <th></th>
         </tr>
         </thead>
         <tbody>
@@ -80,6 +81,7 @@
           <td><%= historias.Estatura %> m.</td>
           <td><%= historias.Diagnostico %></td>
           <td>
+            <a href="/Historia/editar/<%= historias.idHistoria %>" class="material-icons teal-text text-accent-4">add_circle</a>
             <a href="/Historia/bye/<%= historias.idHistoria %>" class="material-icons teal-text text-accent-4">delete</a>
           </td>
         </tr>
@@ -87,6 +89,7 @@
         <% })%>
       </table>
       <div class="row">
+        <br>
         <div class="col s12 m12 l12 center">
           <a href="/Historia/nuevo/<%= paciente.id %>+<%= medico.id %>" class="btn waves-effect waves-light teal accent-4" type="submit" name="action">Nueva historia</a>
         </div>
@@ -112,6 +115,7 @@
       </table>
 
       <div class="row">
+        <br>
         <div class="col s12 m12 l12 center">
           <a href="/Alergia/nuevo/<%= paciente.id %>" class="btn waves-effect waves-light teal accent-4" type="submit" name="action">Nueva alergia</a>
         </div>
@@ -137,6 +141,7 @@
       </table>
     </div>
     <div class="row">
+      <br>
       <div class="col s12 m12 l12 center">
         <a href="/Telefono/nuevo/<%= paciente.id %>" class="btn waves-effect waves-light teal accent-4" type="submit" name="action">Nuevo telefono</a>
       </div>

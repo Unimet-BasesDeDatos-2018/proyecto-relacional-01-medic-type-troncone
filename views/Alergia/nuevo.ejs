@@ -1,0 +1,122 @@
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Registro/Modificación | MedicType</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+</head>
+<body>
+
+<div class="navbar-fixed">
+  <nav class="grey darken-3" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">MedicType</a>
+
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+</div>
+
+<br>
+
+
+<!--AÑADIR PACIENTE-->
+<form action="/Alergia/crear/" method="POST">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m12 l12">
+        <h4>Indique la nueva alergia:</h4>
+      </div>
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s12 m6  l6">
+            <input name="afectado" type="hidden" value="<%= alergia.id %>" required="" aria-required="true">
+            <input name="alergia" placeholder="Alergia" type="text" class="validate" required="" aria-required="true">
+          </div>
+        </div>
+        <center>
+          <input value="Enviar" class="btn waves-effect waves-light" type="submit"> </input>
+        </center>
+      </form>
+    </div>
+  </div>
+</form>
+<!--FIN-->
+
+
+<footer class="page-footer teal accent-4">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m9 l9">
+        <h5 class="white-text">Sobre el Proyecto</h5>
+        <p class="grey-text text-lighten-4">Proyecto de Base de Datos de la Universidad Metropolitana. Implementación de una base de datos relacional con Sails.js y MySQL.</p>
+
+
+      </div>
+      <div class="col s12 m3 l3">
+        <h5 class="white-text">Integrantes:</h5>
+        <ul>
+          <li><a class="white-text" href="#!">Maximiliano Casale</a></li>
+          <li><a class="white-text" href="#!">Abraham Chang</a></li>
+          <li><a class="white-text" href="#!">Gabriel De Lellis</a></li>
+          <li><a class="white-text" href="#!">Gabriele Troncone</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      Proyecto realizado en <a class="grey-text text-darken-2" href="http://materializecss.com">Materialize</a>
+    </div>
+  </div>
+</footer>
+
+
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/init.js"></script>
+<script>
+  $(document).ready(function() {
+    $('select').material_select();
+
+    $('.datepicker').pickadate({
+      selectMonths: true, // Creates a dropdown to control month
+      selectYears: 200, // Creates a dropdown of 15 years to control year,
+      today: 'Hoy',
+      clear: 'Limpiar',
+      close: 'Listo',
+      closeOnSelect: false // Close upon selecting a date,
+    });
+  });
+</script>
+<script type="text/javascript">
+  var Paciente;
+  function registrarPaciente(){
+    Paciente = {
+      name: document.getElementById("first_name").value,
+      apellido: document.getElementById("last_name").value,
+      cedula: document.getElementById("cedula").value,
+      correo: document.getElementById("email").value,
+      bday: document.getElementById("bday").value,
+      nacionalidad: document.getElementById("nacionalidad").value,
+      nivelEducativo: document.getElementById("nivelEducativo").value,
+      genero: document.getElementById("genero").value,
+      edoCivil: document.getElementById("edoCivil").value,
+      estado: document.getElementById("estado").value,
+      direccion: document.getElementById("direccion").value,
+    };
+    console.log("Datos en obj Paciente.");
+    //Querys aqui palante ToDo...
+  }
+
+</script>
+
+</body>
+</html>

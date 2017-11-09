@@ -1,4 +1,3 @@
-<form action="/Medico/mostrarPacientes/" method="PUT">
 <html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -23,36 +22,37 @@
 </nav>
 <!-- FIN BARRA DE NAVEGACIÓN -->
 
-<!-- CAMPO DE LICENCIA Y BOTÓN DE VER PACIENTES -->
-<div style="height: 60vh;" class="section no-pad-bot" id="index-banner">
-  <div class="container">
-    <br><br><br><br>
-    <div class="row center">
-      <h4 class="header col s12 light">Introduzca su número de licencia médica:</h4>
-      <div class="col m4 l4"></div>
-      <div class="input-field col s12 m4 l4">
-        <input id="licencia" type="number" class="validate" name="id">
-        <label for="licencia">Número de licencia</label>
-      </div>
-      <div class="col m4 l4"></div>
+<!-- LISTA DE PACIENTES -->
+<div  class="container">
+  <div class="section">
+    <div class="row">
+      <br><br>
+      <h4 class="col s12 light center">Frecuencia de enfermedades</h4>
+
+      <table class="highlight centered">
+
+        <thead>
+        <tr>
+          <th class="teal-text text-accent-4">Nombre</th>
+          <th class="teal-text text-accent-4">Frecuencia</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% _.each(patologia, function (patologia){ %>
+        <tr data-id="<%= patologia.id %>" data-model="paciente" >
+         
+          <td><%= patologia.Nombre %></td>
+    
+          <td><%= patologia.Frecuencia %></td>
+        </tr>
+        </tbody>
+        <% }) %>
+      </table>
     </div>
   </div>
-  <div class="row center">
-    <input type="submit" id="download-button" class="btn-large waves-effect waves-light teal accent-4" value="Ver Pacientes"/>
-  </div>
   <br><br>
 </div>
-</div>
-<!-- FIN CAMPO DE LICENCIA Y BOTÓN DE VER PACIENTES -->
-
-<div class="container">
-  <div class="section">
-
-
-
-  </div>
-  <br><br>
-</div>
+ <!-- FIN LISTA DE PACIENTES -->
 
 <footer class="page-footer teal accent-4">
   <div class="container">
@@ -81,18 +81,18 @@
   </div>
 </footer>
 
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-  <script>
-    $(document).ready(function(){
-      $('.parallax').parallax();
-    });
-  </script>
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('.parallax').parallax();
+  });
+</script>
 
 
 
-  </body>
-  </html>
-</form>
+</body>
+</html>
+

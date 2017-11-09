@@ -1,0 +1,39 @@
+load data local infile "C:/Users/Gabriele Troncone/Desktop/DATOS/Paciente.csv"
+into table paciente
+fields terminated by ';'
+lines terminated by '\n';
+
+load data local infile "C:/Users/Gabriele Troncone/Desktop/DATOS/Medico.csv"
+into table medico
+fields terminated by ';'
+lines terminated by '\n';
+
+load data local infile "C:/Users/Gabriele Troncone/Desktop/DATOS/Alergias.csv"
+into table alergias
+fields terminated by ';'
+lines terminated by '\n';
+
+load data local infile "C:/Users/Gabriele Troncone/Desktop/DATOS/Telefonos.csv"
+into table telefonos
+fields terminated by ';'
+lines terminated by '\n';
+
+load data local infile "C:/Users/Gabriele Troncone/Desktop/DATOS/Historia.csv"
+into table historia
+fields terminated by ';'
+lines terminated by '\n';
+
+load data local infile "C:/Users/Gabriele Troncone/Desktop/DATOS/Patologia.csv"
+into table patologia
+fields terminated by ';'
+lines terminated by '\n';
+
+load data local infile "C:/Users/Gabriele Troncone/Desktop/DATOS/Describe.csv"
+into table describe_
+fields terminated by ';'
+lines terminated by '\n';
+
+load data local infile "C:/Users/Gabriele Troncone/Desktop/DATOS/Tiene.csv"
+into table tiene
+fields terminated by ';'
+lines terminated by '\n';

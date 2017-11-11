@@ -57,6 +57,36 @@ module.exports = {
       size: 100,
       required: true
     },
+
+    intervenido:{
+      type: 'integer',
+      size: 1,
+      columnName: 'Intervenido'
+    },
+
+    diabetes:{
+      type: 'integer',
+      size: 1,
+      columnName: 'Diabetes'
+    },
+
+    hipertenso:{
+      type: 'integer',
+      size: 1,
+      columnName: 'Hipertenso'
+    },
+
+    fumador:{
+      type: 'integer',
+      size: 1,
+      columnName: 'Fumador'
+    },
+
+    referidoPor:{
+      type: 'integer',
+      columnName: 'ReferidoPor'
+    }
+
   }
 
 

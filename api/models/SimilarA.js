@@ -1,5 +1,5 @@
 /**
- * Tiene.js
+ * SimilarA.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
@@ -8,31 +8,30 @@
 module.exports = {
 
   connection: 'myDataBase',
-  tableName: 'tiene',
+  tableName: 'similara',
   autoPK: false,
   autoCreatedAt: false,
   autoUpdatedAt: false,
 
   attributes: {
 
-    paciente: {
+    medicamento:{
       type: 'integer',
       primaryKey: true,
-      columnName: 'Paciente_idPaciente'
+      required: true,
+      columnName: 'Medicamento_idMedicamento'
+
     },
 
-    medico: {
+    similar:{
       type: 'integer',
       primaryKey: true,
-      columnName: 'Medico_idMedico'
-    },
+      required: true,
+      columnName: 'Medicamento_idMedicamento1'
 
-    historia: {
-      type: 'integer',
-      primaryKey: true,
-      columnName: 'Historia_idHistoria'
+
     }
+
 
   }
 };
-

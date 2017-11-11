@@ -1,5 +1,5 @@
 /**
- * Tiene.js
+ * Tendra.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
@@ -8,31 +8,29 @@
 module.exports = {
 
   connection: 'myDataBase',
-  tableName: 'tiene',
+  tableName: 'tendra',
   autoPK: false,
   autoCreatedAt: false,
   autoUpdatedAt: false,
 
   attributes: {
 
-    paciente: {
+    historia:{
       type: 'integer',
       primaryKey: true,
-      columnName: 'Paciente_idPaciente'
-    },
-
-    medico: {
-      type: 'integer',
-      primaryKey: true,
-      columnName: 'Medico_idMedico'
-    },
-
-    historia: {
-      type: 'integer',
-      primaryKey: true,
+      required: true,
       columnName: 'Historia_idHistoria'
+    },
+
+    alergia:{
+      type: 'integer',
+      primaryKey: true,
+      required: true,
+      columnName: 'Alergias_idAlergias'
     }
+
+
+
 
   }
 };
-

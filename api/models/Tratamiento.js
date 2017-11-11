@@ -1,5 +1,5 @@
 /**
- * Tiene.js
+ * Tratamiento.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
@@ -8,31 +8,34 @@
 module.exports = {
 
   connection: 'myDataBase',
-  tableName: 'tiene',
+  tableName: 'tratamiento',
   autoPK: false,
   autoCreatedAt: false,
   autoUpdatedAt: false,
 
   attributes: {
 
-    paciente: {
+    historia:{
       type: 'integer',
       primaryKey: true,
-      columnName: 'Paciente_idPaciente'
-    },
-
-    medico: {
-      type: 'integer',
-      primaryKey: true,
-      columnName: 'Medico_idMedico'
-    },
-
-    historia: {
-      type: 'integer',
-      primaryKey: true,
+      required: true,
       columnName: 'Historia_idHistoria'
+    },
+
+    medicamento:{
+      type: 'integer',
+      primaryKey: true,
+      required: true,
+      columnName: 'Medicamento_idMedicamento'
+
+    },
+
+    posologia:{
+      type: 'string',
+      size: 45,
+      required: true,
+      columnName: 'Posologia'
     }
 
   }
 };
-

@@ -15,6 +15,27 @@ module.exports = {
     });
   },
 
+  nuevoPaciente: function(req, res) {
+    Paciente.create({
+      cedula: req.param('cedula'),
+      nombre: req.param('nombre'),
+      apellido: req.param('apellido'),
+      edo_civil: req.param('edo_civil'),
+      direccion: req.param('direccion'),
+      nivel_educativo: req.param('nivel_educativo'),
+      fecha_nac: req.param('fecha_nac'),
+      nacionalidad: req.param('nacionalidad'),
+      sexo: req.param('sexo'),
+      correo: req.param('correo'),
+      estado: req.param('estado')
+    }).exec( function (err, paciente){
+      if (err || !paciente ) {
+        return;
+      }
+    });
+    res.redirect('/');
+  },
+
   'new': function(req, res) {
     Paciente.create({
       cedula: req.param('cedula'),
@@ -65,7 +86,7 @@ module.exports = {
     });
   },
 
-  show: function (req, res) {
+  showMedico: function (req, res) {
     var pacientes = req.param('id').substring(0,1);
     var medicos = req.param('id').substring(2);
     Paciente.findOne({id: pacientes}).exec(function (err, paciente) {
@@ -113,6 +134,56 @@ module.exports = {
         });
       });
     });
+  },
+
+  showPaciente: function (req, res) {
+    var pacientes = req.param('cedula');
+    Paciente.findOne({cedula: pacientes}).exec(function (err, paciente) {
+      Alergia.find({afectado: pacientes}).exec(function (err, alergia) {
+        Telefono.find({persona: pacientes}).exec(function (err, telefono) {
+            Tiene.find({paciente: pacientes}).exec(function (err, tiene) {
+              var aux = '';
+              if (tiene) {
+              for (var i = 0 ; i < tiene.length ; i++ ) {
+                if ( i == tiene.length - 1 ) {
+                  aux += ('idHistoria = '+tiene[i].historia);
+                }
+                else {
+                  aux += ('idHistoria = '+tiene[i].historia+' or ');
+                }
+              }
+              var aux2 = Historia.query('select * from historia where '+aux, function(err, result){
+                if (!result) {
+                  res.view({
+                  paciente: paciente,
+                  alergias: alergia,
+                  telefonos: telefono,
+                  historias: null
+                });
+                  return;
+                }
+                aux2 = JSON.parse(JSON.stringify(result));
+                aux2 = aux2;
+                res.view({
+                  paciente: paciente,
+                  alergias: alergia,
+                  telefonos: telefono,
+                  historias: aux2
+                });
+              })
+              }
+              else {
+                res.view({
+                  paciente: paciente,
+                  alergias: alergia,
+                  telefonos: telefono,
+                  historias: null
+                });
+              }
+            });
+          });
+        });
+      });
   },
 
 

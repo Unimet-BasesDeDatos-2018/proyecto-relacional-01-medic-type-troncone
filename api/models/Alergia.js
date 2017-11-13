@@ -9,24 +9,24 @@ module.exports = {
 
   connection: 'myDataBase',
   tableName: 'alergias',
+  autoPK: false,
   autoCreatedAt: false,
   autoUpdatedAt: false,
 
   attributes: {
 
-    id: {
-      type: 'integer',
-      autoIncrement: true,
-      primaryKey: true,
-      columnName: 'idAlergias'
-    },
-
     alergia: {
       type: 'string',
-      size: 45,
       required: true,
-      unique: true,
-      columnName: 'Alergia'
+      size: 100,
+      columnName: 'Alergias'
+    },
+
+    afectado: {
+      type: 'integer',
+      required: true,
+      primaryKey: true,
+      columnName: 'Paciente_idPaciente'
     }
 
   }

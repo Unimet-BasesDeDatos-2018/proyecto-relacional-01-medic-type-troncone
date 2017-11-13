@@ -23,7 +23,6 @@ module.exports = {
 
     patologia: {
       type: 'integer',
-      primaryKey: true,
       columnName: 'Patologia_idPatologia'
     }
 

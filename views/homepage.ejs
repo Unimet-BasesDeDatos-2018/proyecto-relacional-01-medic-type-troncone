@@ -1,4 +1,4 @@
-<form action="/Medico/mostrarPacientes/" method="PUT">
+
 <html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -13,15 +13,6 @@
 <body>
 
 
-<!-- BARRA DE NAVEGACIÓN -->
-<nav>
-  <div class="nav-wrapper grey darken-3">
-    <a href="#" class="brand-logo center">MedicType</a>
-    <ul id="nav-mobile" class="left hide-on-med-and-down">
-    </ul>
-  </div>
-</nav>
-<!-- FIN BARRA DE NAVEGACIÓN -->
   <br><br><br>
 
 <!-- SELECCIONAR MEDICO/PACIENTE -->
@@ -31,7 +22,7 @@
       <div class="col l3"></div>
       <div class="col l6">
         <div class="row center-align">
-          <a class="selectP" href="/Algo/Alguito">
+          <a class="selectP" href="#">
           <div style="padding: 0px;" class="col l6"><img class="responsive-img" src="https://i.imgur.com/UAhDdjf.png" alt="">
           <div style="width: 100%; box-shadow: none; border-radius: 0px;" class="prueba123 btn-p waves-effect waves-light btn teal accent-4">INGRESO - PACIENTE</div>
           </div>
@@ -51,70 +42,47 @@
 <!-- FIN SELECCIONAR MEDICO PACIENTE -->
 
 <!-- LOG IN MEDICO -->
+<form method="PUT" action="/Medico/mostrarPacientes/">
 <div class="menuM hide section no-pad-bot">
   <div class="container">
     <div class="row center">
       <h4 class="header col s12 light">Introduzca su número de licencia médica</h4>
-      <div class="col m4 l4"></div>
       <div class="input-field col s12 m4 l4">
-        <input id="licencia" type="number" class="validate" name="id">
+        <input id="licencia" type="number" class="validate" name="licencia">
         <label for="licencia">Número de licencia</label>
       </div>
       <div class="col m4 l4"></div>
     </div>
   </div>
   <div class="row center">
-    <!-- <input type="submit" id="download-button" class="btn-large waves-effect waves-light teal accent-4" value="Ver Pacientes"/> -->
-    <a type="submit" id="boton-medico download-button" class="btn-large waves-effect waves-light teal btn accent-4" >Ver Pacientes</a>
+    <input type="submit" id="download-button" class="btn-large waves-effect waves-light teal accent-4" value="Ver Pacientes"/>
   </div>
   <br><br><br>
 </div>
+</form>
+<!-- Fin login medico -->
+<!-- Login Pacientes -->
 <div class="menuP hide section no-pad-bot">
   <div class="container">
     <div class="row center">
+      <form method="PUT" action="/Paciente/showPaciente/">
       <h4 class="header col s12 light">Introduzca su cédula de identidad</h4>
-      <div class="col m4 l4"></div>
       <div class="input-field col s12 m4 l4">
-        <input id="cedula" type="number" class="validate" name="id">
+        <input id="cedula" type="number" class="validate" name="cedula">
         <label for="cedula">Número de cedula</label>
       </div>
-      <div class="col m4 l4"></div>
+      <div class=" col s12 m4 l4">
+        <input class="btn waves-effect waves-light" type="submit" value="Ingresar" ></input>
+        <a type="submit" href="Paciente/Registro" id="boton-registrar download-button" class="btn waves-effect waves-light">Registrarse</a>
+      </div>
+      </form>
     </div>
-  </div>
-  <div class="row center">
-    <!-- <input type="submit" id="download-button" class="btn-large waves-effect waves-light teal accent-4" value="Ver Pacientes"/> -->
-    <a type="submit" id="boton-paciente download-button" class="btn-large waves-effect waves-light teal btn accent-4" >Ingresar</a>
   </div>
   <br><br><br>
 </div>
 <!-- FIN LOG IN PACIENTES -->
 
-<footer class="page-footer teal accent-4">
-  <div class="container">
-    <div class="row">
-      <div class="col s12 m9 l9">
-        <h5 class="white-text">Sobre el Proyecto</h5>
-        <p class="grey-text text-lighten-4">Proyecto de Base de Datos de la Universidad Metropolitana. Implementación de una base de datos relacional con Sails.js y MySQL.</p>
 
-
-      </div>
-      <div class="col s12 m3 l3">
-        <h5 class="white-text">Integrantes:</h5>
-        <ul>
-          <li><a class="white-text" href="#!">Maximiliano Casale</a></li>
-          <li><a class="white-text" href="#!">Abraham Chang</a></li>
-          <li><a class="white-text" href="#!">Gabriel De Lellis</a></li>
-          <li><a class="white-text" href="#!">Gabriele Troncone</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="footer-copyright">
-    <div class="container">
-      Proyecto realizado en <a class="grey-text text-darken-2" href="http://materializecss.com">Materialize</a>
-    </div>
-  </div>
-</footer>
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -138,4 +106,4 @@
 
   </body>
   </html>
-</form>
+

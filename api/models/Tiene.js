@@ -23,7 +23,6 @@ module.exports = {
 
     medico: {
       type: 'integer',
-      primaryKey: true,
       columnName: 'Medico_idMedico'
     },
 

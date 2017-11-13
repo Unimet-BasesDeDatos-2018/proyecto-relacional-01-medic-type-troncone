@@ -28,45 +28,24 @@ module.exports = {
       columnName: 'Cedula'
     },
 
-    sexo: {
-      type: 'string',
-      size: 1,
-      required: true,
-      columnName: 'Sexo'
-    },
-
-    nombre1: {
+    nombre: {
       type: 'string',
       required: true,
-      size: 20,
-      columnName: 'Nom1'
+      size: 45,
+      columnName: 'Nombre'
     },
 
-    nombre2:{
+    apellido: {
       type: 'string',
       required: true,
-      size: 20,
-      columnName: 'Nom2'
+      size: 45,
+      columnName: 'Apellido'
     },
 
-    apellido1: {
+    edo_civil: {
       type: 'string',
-      required: true,
-      size: 20,
-      columnName: 'Ape1'
-    },
-
-    apellido2:{
-      type: 'string',
-      required: true,
-      size: 20,
-      columnName: 'Ape2'
-    },
-
-    fecha_nac: {
-      type: 'date',
-      required: true,
-      columnName: 'FechaNac'
+      size: 45,
+      columnName: 'EdoCivil'
     },
 
     direccion: {
@@ -76,16 +55,42 @@ module.exports = {
       columnName: 'Direccion'
     },
 
-    email: {
+    nivel_educativo: {
+      type: 'string',
+      size: 100,
+      columnName: 'NivelEduc'
+    },
+
+    fecha_nac: {
+      type: 'date',
+      required: true,
+      columnName: 'FechaNac'
+    },
+
+    nacionalidad: {
       type: 'string',
       size: 45,
-      columnName: 'Email'
+      columnName: 'Nacionalidad'
+    },
+
+    sexo: {
+      type: 'string',
+      size: 1,
+      required: true,
+      columnName: 'Sexo'
+    },
+
+    correo: {
+      type: 'email',
+      size: 60,
+      columnName: 'Correo'
     },
 
     estado: {
-      type: 'integer',
+      type: 'string',
+      size: 60,
       required: true,
-      columnName: 'Estado_idEstado'
+      columnName: 'Estado'
     }
   }
 };

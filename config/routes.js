@@ -36,9 +36,9 @@ module.exports.routes = {
     view: 'homepage'
   },
 
-  '/Algo/Alguito': {
-    view: '/Paciente/nuevo'
-  }
+  '/Paciente/Registro': {
+    view: 'Paciente/registrar'
+  },
 
   /***************************************************************************
   *                                                                          *

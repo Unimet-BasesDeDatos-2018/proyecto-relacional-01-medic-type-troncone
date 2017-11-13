@@ -16,7 +16,7 @@ module.exports = {
   attributes: {
 
     telefono: {
-      type: 'string',
+      type: 'int',
       required: true,
       size: 20,
       columnName: 'Telefono'

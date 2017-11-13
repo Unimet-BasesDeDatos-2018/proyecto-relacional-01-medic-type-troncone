@@ -28,11 +28,10 @@ module.exports = {
     },
 
     especialidad: {
-      type: 'string',
-      required: 'true',
-      size: 100,
-      columnName: 'Especialidad'
-    },
+      type: 'integer',
+      required: true,
+      columnName: 'Especialidad_idEspecialidad'
+    }
   }
 };
 

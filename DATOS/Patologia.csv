@@ -1,8 +1,3 @@
-1;Migrana Cronica;Dolor de cabeza que ocurre 15 o mas dias cada mes y que dura 4 o mas horas cada dia;N/A;???
-2;Taquicardia auricular multifocal;Frecuencia cardiaca rapida que ocurre cuando se envian demasiadas senales (impulsos electricos) ;Hereditaria;???
-3;Taquicardia supraventricular paroxistica;Episodios de frecuencia cardiaca rapida que comienzan en una parte del corazon por encima de los ventriculos;Hereditaria;???
-4;Esquizofrenia;Trastornos mentales cronicos, falta de percepcion de la realidad;Hereditaria;Sensibilidad Emocional
-5;Alzheimer;Deterioro cognitivo y trastornos conductuales;N/A;Perdida de neuronas
-6;Hipertiroidismo;Exceso de secrecion de hormonas, hiperactividad y taquicardia;N/A;Aumento global del metabolismo
-7;Hidrocefalia;Aumento anormal de la cantidad de liquido cefalorraquideo en la cavidad del cerebro;Hereditaria;Perdida de la coordinacion y conciencia
-8;Hipertension arterial;incremento continuo en las cifras de presion sanguinea;N/A;Aumento en la viscosidad de la sangre
+1;Cancer cerebral;Tumores que surgen a partir de las envolturas del cerebro o la medula (meninges);Desconocido;Desconocido
+2;Migrana cronica;Dolor de cabeza que ocurre aproximadamente 4 o mas horas al dia. Generando dolor, sensibilidad a la luz y al riudo;Hereditario;Desconocido
+3;Conjuntivitis;Inflamacion de la conjuntiva, el tejido fino y transparente que cubre el interior del parpado y la parte blanca del ojo.;Transmitido por virus, bacterias, alergenos(caspa de mascotas o acaros), sustancias irritantes;Desconocido

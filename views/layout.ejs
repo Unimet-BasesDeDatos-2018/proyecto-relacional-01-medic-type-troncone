@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%=typeof title == 'undefined' ? 'MedicType Plus' : title%></title>
+    <title><%=typeof title == 'undefined' ? 'MedicType' : title%></title>
 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <!-- FIN CSS -->
     <!--
         Stylesheets and Preprocessors
         ==============================
@@ -31,56 +34,27 @@
     <!--STYLES-->
     <link rel="stylesheet" href="/styles/importer.css">
     <!--STYLES END-->
-  <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-  <!-- FIN CSS -->
-
   </head>
 
   <body>
 
-     <!-- BARRA DE NAVEGACIÓN -->
-<nav>
-  <div class="nav-wrapper grey darken-3">
-    <a href="/" class="brand-logo center">MedicType</a>
-    <ul id="nav-mobile" class="left hide-on-med-and-down">
-    </ul>
-  </div>
-</nav>
-<!-- FIN BARRA DE NAVEGACIÓN -->
-  <br><br><br>
-  
+  <nav class="grey darken-3" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="http://localhost:1337/" class="brand-logo">MEDIC<span class="teal-text text-accent-4">TYPE</span></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="http://localhost:1337/">INICIO</a></li>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="http://localhost:1337/">INICIO</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
     <%- body %>
 
 
-
-<footer class="page-footer teal accent-4">
-  <div class="container">
-    <div class="row">
-      <div class="col s12 m9 l9">
-        <h5 class="white-text">Sobre el Proyecto</h5>
-        <p class="grey-text text-lighten-4">Proyecto de Base de Datos de la Universidad Metropolitana. Implementación de una base de datos relacional con Sails.js y MySQL.</p>
-
-
-      </div>
-      <div class="col s12 m3 l3">
-        <h5 class="white-text">Integrantes:</h5>
-        <ul>
-          <li><a class="white-text" href="#!">Maximiliano Casale</a></li>
-          <li><a class="white-text" href="#!">Abraham Chang</a></li>
-          <li><a class="white-text" href="#!">Gabriel De Lellis</a></li>
-          <li><a class="white-text" href="#!">Gabriele Troncone</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="footer-copyright">
-    <div class="container">
-      Proyecto realizado en <a class="grey-text text-darken-2" href="http://materializecss.com">Materialize</a>
-    </div>
-  </div>
-</footer>
     <!--
         Client-side Templates
         ========================
@@ -129,11 +103,43 @@
           + Use a different preprocessor, like TypeScript
 
     -->
+<footer class="page-footer teal accent-4">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m9 l9">
+        <h5 class="white-text">MEDICTYPE - Sobre el Proyecto</h5>
+        <p class="grey-text text-lighten-4">Proyecto de Base de Datos de la Universidad Metropolitana. Implementación de una base de datos relacional con Sails.js y MySQL.</p>
+
+      </div>
+      <div class="col s12 m3 l3">
+        <h5 class="white-text">Integrantes:</h5>
+        <ul>
+          <li><a class="white-text" href="https://github.com/maximilianoc94">Maximiliano Casale</a></li>
+          <li><a class="white-text" href="#!">Abraham Chang</a></li>
+          <li><a class="white-text" href="https://github.com/dlgabriel">Gabriel De Lellis</a></li>
+          <li><a class="white-text" href="https://github.com/Brablawaxplagabrwabla">Gabriele Troncone</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+      Proyecto realizado en <a class="grey-text text-darken-2" href="http://materializecss.com">Materialize</a>
+    </div>
+  </div>
+</footer>
 
     <!--SCRIPTS-->
     <script src="/js/dependencies/sails.io.js"></script>
     <script src="/js/init.js"></script>
     <script src="/js/materialize.js"></script>
     <!--SCRIPTS END-->
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+
   </body>
 </html>

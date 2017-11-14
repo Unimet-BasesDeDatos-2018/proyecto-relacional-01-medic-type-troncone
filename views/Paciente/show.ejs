@@ -1,62 +1,44 @@
 <html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <title></title>
-
-  <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-  <!-- FIN CSS -->
+  
 </head>
 <body>
 
-
-<!-- BARRA DE NAVEGACIÓN -->
-<nav>
-  <div class="nav-wrapper grey darken-3">
-    <a href="#" class="brand-logo center">MedicType</a>
-    <ul id="nav-mobile" class="left hide-on-med-and-down">
-    </ul>
-  </div>
-</nav>
-<!-- FIN BARRA DE NAVEGACIÓN -->
 
 <!-- LISTA DE PACIENTES -->
 <div style="height: 75vh;" class="container">
   <div class="section">
     <div class="row">
       <br><br>
-      <h4 class="col s12 light center">Datos del paciente:</h4>
+      <h4 class="col s12 light center flow-text">Datos del paciente: <%= paciente.nombre %> <%= paciente.apellido %></h4>
 
-      <div class="container">
+      <table class="highlight centered">
 
-        <div class="row">
-          <form class="col s12">
+        <thead>
+        <tr>
+          <th class="teal-text text-accent-4">Cédula:</th>
+          <th class="teal-text text-accent-4">Sexo:</th>
+          <th class="teal-text text-accent-4">Fecha de Nacimiento:</th>
+          <th class="teal-text text-accent-4">Estado civil:</th>
+          <th class="teal-text text-accent-4">Nivel Educativo:</th>
+          <th class="teal-text text-accent-4">Nacionalidad:</th>
+          <th class="teal-text text-accent-4">Correo:</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-id="<%= historias.idHistoria %>" data-model="alergia" >
+          <td><%= paciente.cedula %></td>
+          <td><%= paciente.sexo %></td>
+          <td><%= paciente.fecha_nac %></td>
+          <td><%= paciente.edo_civil %></td>
+          <td><%= paciente.nivel_educativo %></td>
+          <td><%= paciente.nacionalidad %></td>
+          <td><%= paciente.correo %></td>
+        </tr>
+        </tbody>
+      </table>
 
-            <div class="center-align col s12 m12 l12">
-              <h1 class="flow-text"><%= paciente.nombre %> <%= paciente.apellido %></h1>
-            </div>
-            <div class="flow-text col s12 m12 l12">
-              <p>Cédula: <%= paciente.cedula %></p>
-            </div>
-            <div class="flow-text col s6 m6 l6">
-              <p>Sexo: <%= paciente.sexo %></p>
-              <p>Fecha de Nacimiento: <%= paciente.fecha_nac %></p>
-            </div>
-            <div class="flow-text col s6 m6 l6">
-              <p>Estado civil: <%= paciente.edo_civil %></p>
-              <p>Nivel Educativo: <%= paciente.nivel_educativo %></p>
-            </div>
-            <div class="flow-text col s6 m6 l6">
-              <p>Nacionalidad: <%= paciente.nacionalidad %></p>
-              <p>Correo: <%= paciente.correo %></p>
-            </div>
-          </form>
-        </div>
-
-
-      </div>
+<br>
 
       <table class="highlight centered">
 
@@ -151,19 +133,6 @@
   <br><br>
 </div>
 <!-- FIN LISTA DE PACIENTES -->
-
-
-
-<!--  Scripts-->
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-<script>
-  $(document).ready(function(){
-    $('.parallax').parallax();
-  });
-</script>
-
 
 
 </body>

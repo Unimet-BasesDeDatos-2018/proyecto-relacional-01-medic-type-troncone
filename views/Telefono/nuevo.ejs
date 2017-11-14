@@ -1,15 +1,5 @@
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
   <title>Registro/Modificación | MedicType</title>
-
-  <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
 </head>
 <body>
@@ -22,29 +12,27 @@
   <div class="container">
     <div class="row">
       <div class="col s12 m12 l12">
-        <h4>Introduzca el nuevo teléfono:</h4>
+        <h4 class="flow-text center teal-text text-accent-4">Introduzca el teléfono nuevo:</h4>
       </div>
       <form class="col s12">
         <div class="row">
-          <div class="input-field col s12 m6  l6">
+          <div class="col hide-on-small-only m4 l4"></div>
+          <div class="input-field col s12 m4 l4">
             <input name="persona" type="hidden" value="<%= telefono[0].id %>" required="" aria-required="true">
             <input name="telefono" placeholder="Teléfono" name="telefono" type="text" class="validate" required="" aria-required="true">
           </div>
+          <div class="col hide-on-small-only m4 l4"></div>
         </div>
         <center>
-          <input value="Enviar" class="btn waves-effect waves-light" type="submit"> </input>
+          <input value="Enviar" class="btn waves-effect waves-light teal accent-4" type="submit"> </input>
         </center>
       </form>
     </div>
   </div>
 </form>
 <!--FIN-->
+<br><br>
 
-
-<!--  Scripts-->
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="js/materialize.js"></script>
-<script src="js/init.js"></script>
 <script>
   $(document).ready(function() {
     $('select').material_select();

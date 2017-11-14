@@ -1,19 +1,10 @@
 <form action="/Historia/new" method="POST">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-    <title>Crear Historia | MedicType</title>
-
-    <!-- CSS  -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 
   </head>
   <body>
+
+  <br>
 
 
 
@@ -24,19 +15,13 @@
       <form class="col s12">
         <div class="row">
 
-          <div class="input-field col s12 m6 l6">
-            <textarea name="sintoma" id="textarea1" class="materialize-textarea" data-length="120"></textarea>
-            <label for="textarea1">Sintomas</label>
+          <div class="col s12 m12 l12">
+            <h4 class="flow-text center teal-text text-accent-4">Crear Historia</h4>
           </div>
 
           <div class="input-field col s12 m6 l6">
             <input name="peso" id="icon_telephone" type="tel" class="validate">
             <label for="icon_telephone">Peso</label>
-          </div>
-
-          <div class="input-field col s12 m6 l6">
-            <textarea name="notas" id="textarea1" class="materialize-textarea" data-length="120"></textarea>
-            <label for="textarea1">Notas</label>
           </div>
 
           <div class="input-field col s12 m6 l6">
@@ -53,6 +38,16 @@
             <input name="diagnostico" type="text" class="materialize-textarea">
             <label for="icon_telephone">Diagnóstico</label>
           </div>
+
+          <div class="input-field col s12 m6 l6">
+            <textarea name="sintoma" id="textarea1" class="materialize-textarea" data-length="120"></textarea>
+            <label for="textarea1">Sintomas</label>
+          </div>
+
+          <div class="input-field col s12 m6 l6">
+            <textarea name="notas" id="textarea1" class="materialize-textarea" data-length="120"></textarea>
+            <label for="textarea1">Notas</label>
+          </div>          
 
           <div class="input-field col s12 m6 l6">
             <input name="medico" type="hidden" value="<%= medico.id %>" class="materialize-textarea">
@@ -74,11 +69,9 @@
   </div>
 
 
+<br><br>
 
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="js/materialize.js"></script>
-  <script src="js/init.js"></script>
+
   <script>
     $(document).ready(function() {
       $('select').material_select();

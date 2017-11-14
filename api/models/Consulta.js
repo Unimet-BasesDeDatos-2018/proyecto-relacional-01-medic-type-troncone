@@ -35,7 +35,7 @@ module.exports = {
       columnName: 'Motivo'
     },
 
-    fechaConsul:{
+    fechaConsulta:{
       type: 'date',
       required: true,
       columnName: 'FechaCon'

@@ -27,12 +27,19 @@ module.exports = {
       columnName: 'Licencia'
     },
 
-    especialidad: {
+    nombre: {
       type: 'string',
-      required: 'true',
-      size: 100,
-      columnName: 'Especialidad'
+      required: true,
+      size: 45,
+      columnName: 'Nombre'
     },
+
+    apellido: {
+      type: 'string',
+      required: true,
+      size: 45,
+      columnName: 'Apellido'
+    }
   }
 };
 

@@ -24,7 +24,7 @@ module.exports = {
 
     nombreComercial:{
       type:'string',
-      size: 100,
+      size: 200,
       required: true,
       unique: true,
       columnName: 'NomComercial'
@@ -32,14 +32,14 @@ module.exports = {
 
     efectosSec:{
       type: 'string',
-      size: 100,
+      size: 200,
       required: true,
       columnName: 'EfectosSec'
     },
 
     contraindicaciones:{
       type: 'string',
-      size: 100,
+      size: 200,
       required: true,
       columnName: 'Contraindicaciones'
     }

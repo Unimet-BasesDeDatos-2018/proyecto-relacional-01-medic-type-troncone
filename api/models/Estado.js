@@ -21,14 +21,6 @@ module.exports = {
       columnName: 'idEstado'
     },
 
-    codigo:{
-      type: 'integer',
-      required: true,
-      unique: true,
-      columnName: 'CodigoEdo'
-
-    },
-
     estado:{
       type: 'string',
       size: 50,

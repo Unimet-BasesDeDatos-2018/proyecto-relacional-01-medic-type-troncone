@@ -32,7 +32,7 @@ module.exports = {
     descripcion: {
       type: 'string',
       required: true,
-      size: 100,
+      size: 200,
       columnName: 'Descripcion'
     },
 

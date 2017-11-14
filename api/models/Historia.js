@@ -57,6 +57,31 @@ module.exports = {
       size: 100,
       required: true
     },
+
+    intervenido: {
+      type: 'boolean',
+      columnName: 'Intervenido'
+    },
+
+    diabetes: {
+      type: 'boolean',
+      columnName: 'Diabetes'
+    },
+
+    hipertenso: {
+      type: 'boolean',
+      columnName: 'Hipertenso'
+    },
+
+    fumador: {
+      type: 'boolean',
+      columnName: 'Fumador'
+    },
+
+    referidoPor: {
+      type: 'integer',
+      columnName: 'ReferidoPor'
+    }
   }
 
 

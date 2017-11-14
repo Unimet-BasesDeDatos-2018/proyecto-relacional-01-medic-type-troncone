@@ -9,23 +9,21 @@ module.exports = {
 
   connection: 'myDataBase',
   tableName: 'especialidad',
+  autoPK: false,
   autoCreatedAt: false,
   autoUpdatedAt: false,
 
   attributes: {
-    id:{
+    medico:{
       type: 'integer',
-      primaryKey: true,
       required: true,
-      autoIncrement: true,
-      columnName: 'idEspecialidad'
+      columnName: 'Medico_idMedico'
     },
 
     especialidad:{
-      type: 'string',
-      size: 50,
+      type: 'int',
       required: true,
-      columnName: 'Especialidad'
+      columnName: 'Especialidad_idEspecialidad'
     }
 
 

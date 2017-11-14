@@ -3,6 +3,11 @@ into table estado
 fields terminated by ';'
 lines terminated by '\n';
 
+load data local infile "C:/Users/Gabriele Troncone/Bases-de-datos/DATOS/TipoSangre.csv"
+into table tiposangre
+fields terminated by ';'
+lines terminated by '\n';
+
 load data local infile "C:/Users/Gabriele Troncone/Bases-de-datos/DATOS/Paciente.csv"
 into table paciente
 fields terminated by ';'
@@ -100,10 +105,5 @@ lines terminated by '\n';
 
 load data local infile "C:/Users/Gabriele Troncone/Bases-de-datos/DATOS/CompActivos.csv"
 into table compactivos
-fields terminated by ';'
-lines terminated by '\n';
-
-load data local infile "C:/Users/Gabriele Troncone/Bases-de-datos/DATOS/TipoSangre.csv"
-into table tiposangre
 fields terminated by ';'
 lines terminated by '\n';

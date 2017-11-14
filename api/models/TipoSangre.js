@@ -14,18 +14,18 @@ module.exports = {
 
   attributes: {
     id:{
-      type: 'integer',
+      type: 'int',
       primaryKey: true,
       required: true,
       autoIncrement: true,
-      columnName: 'idEspecialidad'
+      columnName: 'idTipoSangre'
     },
 
-    especialidad:{
+    tiposangre:{
       type: 'string',
-      size: 50,
+      size: 5,
       required: true,
-      columnName: 'Especialidad'
+      columnName: 'TipoSangre'
     }
 
 

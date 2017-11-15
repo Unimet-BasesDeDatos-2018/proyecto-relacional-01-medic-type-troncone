@@ -133,7 +133,10 @@ module.exports = {
                         aux += ('idHistoria = '+tiene[i].historia+' or ');
                       }
                     }
-                    var aux2 = Historia.query('select * from historia where '+aux, function(err, result){
+                    sails.log(aux);
+                    var aux2 = Historia.query('select historia.*, medico.Apellido from medico\n' +
+                      'inner join historia\n' +
+                      'on historia.ReferidoPor = medico.idMedico and ('+aux+')', function(err, result){
                       if (!result) {
                         res.redirect('/');
                         return;
@@ -147,8 +150,7 @@ module.exports = {
                         telefonos: telefono,
                         medico: medico,
                         estado: estado[0],
-                        historias: aux2,
-                        referido: referido
+                        historias: aux2
                       });
                     })
                   }
@@ -161,7 +163,6 @@ module.exports = {
                       tiposangre: tiposangre[0],
                       estado: estado[0],
                       historias: null,
-                      referido: null
                     });
                   }
                 });

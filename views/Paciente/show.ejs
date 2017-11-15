@@ -23,7 +23,6 @@
           <th class="teal-text text-accent-4">Correo:</th>
           <th class="teal-text text-accent-4">Estado:</th>
           <th class="teal-text text-accent-4">Dirección:</th>
-          <th class="teal-text text-accent-4">Referido Por:</th>
         </tr>
         </thead>
         <tbody>
@@ -35,7 +34,6 @@
           <td><%= paciente.email %></td>
           <td><%= estado.estado %></td>
           <td><%= paciente.direccion %></td>
-          <td><%= referido.apellido1 %></td>
         </tr>
         </tbody>
       </table>
@@ -52,6 +50,7 @@
           <th class="teal-text text-accent-4">Peso:</th>
           <th class="teal-text text-accent-4">Estatura:</th>
           <th class="teal-text text-accent-4">Diagnóstico:</th>
+          <th class="teal-text text-accent-4">Referido Por:</th>
           <th></th>
         </tr>
         </thead>
@@ -64,6 +63,7 @@
           <td><%= historias.Peso %> Kg.</td>
           <td><%= historias.Estatura %> m.</td>
           <td><%= historias.Diagnostico %></td>
+          <td><%= historias.Apellido %></td>
           <td>
             <a href="/Historia/editar/<%= historias.idHistoria %>" class="material-icons teal-text text-accent-4">add_circle</a>
           </td>

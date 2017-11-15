@@ -29,7 +29,8 @@ module.exports = {
           peso: req.param('peso'),
           estatura: req.param('estatura'),
           notas: req.param('notas'),
-          diagnostico: req.param('diagnostico')
+          diagnostico: req.param('diagnostico'),
+          referidoPor: '10000'
          }).exec(function(err, historia){
            Tiene.create({
              paciente: paciente.id,

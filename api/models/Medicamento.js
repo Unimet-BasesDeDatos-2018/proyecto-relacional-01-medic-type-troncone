@@ -14,10 +14,9 @@ module.exports = {
 
   attributes: {
 
-    medicamento:{
+    id:{
       type:'integer',
       primaryKey: true,
-      required: true,
       autoIncrement: true,
       columnName:'idMedicamento'
     },

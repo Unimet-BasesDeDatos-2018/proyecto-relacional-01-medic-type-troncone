@@ -147,7 +147,8 @@ module.exports = {
                         telefonos: telefono,
                         medico: medico,
                         estado: estado[0],
-                        historias: aux2
+                        historias: aux2,
+                        referido: referido
                       });
                     })
                   }
@@ -159,7 +160,8 @@ module.exports = {
                       medico: medico,
                       tiposangre: tiposangre[0],
                       estado: estado[0],
-                      historias: null
+                      historias: null,
+                      referido: null
                     });
                   }
                 });
@@ -250,9 +252,26 @@ module.exports = {
   },
 
   refrescar: function(req, res) {
-    Paciente.update(req.param('id'), req.params.all(), function(err){
+    TipoSangre.find({tiposangre: req.param('TipoSangre')}).exec(function(err, tipo) {
       if (err) sails.log(err);
-      res.redirect('back');
+      Estado.query("SELECT * FROM estado where Estado like '%"+req.param('estado')+"%'", function(err, estado) {
+        if (err) sails.log(err);
+        Paciente.update(req.param('id'), {
+          nombre1: req.param('nombre1'),
+          nombre2: req.param('nombre2'),
+          apellido1: req.param('apellido1'),
+          apellido2: req.param('apellido2'),
+          sexo: req.param('sexo'),
+          fecha_nac: req.param('fecha_nac'),
+          direccion: req.param('direccion'),
+          email: req.param('email'),
+          estado: estado[0].idEstado,
+          tiposangre: tipo[0].id
+        }, function (err) {
+          if (err) sails.log(err);
+          res.redirect('back');
+        });
+      });
     });
   }
 

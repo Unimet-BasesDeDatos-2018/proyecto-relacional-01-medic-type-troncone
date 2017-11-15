@@ -19,6 +19,9 @@ module.exports = {
         Tiene.find({
           medico: medico[0].id
         }).exec(function(err, tiene){
+          if (JSON.stringify(tiene).length <= 2) {
+            res.redirect('404');
+          }
           var aux;
           var aux2;
           var count = 0;
@@ -29,6 +32,9 @@ module.exports = {
               aux2 += ",";
               historias = aux2.concat(historias);
               Paciente.findOne(tiene[i].paciente).exec(function (err, paciente) {
+                if (JSON.stringify(paciente).length <= 2 ) {
+                  res.redirect('404');
+                }
                 aux = JSON.stringify(paciente.id);
                 count++;
                 aux += ",";

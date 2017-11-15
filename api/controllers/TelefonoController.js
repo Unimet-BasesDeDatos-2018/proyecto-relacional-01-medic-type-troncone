@@ -21,7 +21,7 @@ module.exports = {
       telefono: req.param('telefono')
     }).exec( function (err, telefono) {
       if (err) sails.log(err);
-      res.redirect('/Paciente/show/'+telefono.persona)
+      res.redirect('back');
     });
   },
 
@@ -33,9 +33,17 @@ module.exports = {
   },
 
   bye: function(req, res) {
+    var persona;
+    var telefono;
+    for (var i = 0 ; i < req.param('id').length ; i++ ) {
+      if (req.param('id').substring(i,i+1) == "+") {
+        persona = req.param('id').substring(0, i);
+        telefono = req.param('id').substring(i+1);
+      }
+    }
     Telefono.destroy({
-      persona: req.param('id').substring(0,1),
-      telefono: req.param('id').substring(2)
+      persona: persona,
+      telefono: telefono
     }).exec(function(err){
       if (err) sails.log(err);
     });
@@ -50,9 +58,17 @@ module.exports = {
   },
 
   cambio: function(req, res) {
+    var persona;
+    var telefono;
+    for (var i = 0 ; i < req.param('id').length ; i++ ) {
+      if (req.param('id').substring(i,i+1) == "+") {
+        persona = req.param('id').substring(0, i);
+        telefono = req.param('id').substring(i+1);
+      }
+    }
     Telefono.find({
-      persona: req.param('id').substring(0,1),
-      telefono: req.param('id').substring(2)
+      persona: persona,
+      telefono: telefono
     }).exec(function(err, telefono){
       res.view({
         telefono:telefono

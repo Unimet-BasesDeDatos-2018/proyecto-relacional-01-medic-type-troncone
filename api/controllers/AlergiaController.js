@@ -22,7 +22,7 @@ module.exports = {
       alergia: req.param('alergia')
     }).exec( function (err, alergia) {
       if (err) sails.log(err);
-      res.redirect('/Paciente/show/'+alergia.afectado)
+      res.redirect('back');
     });
   },
 
@@ -41,11 +41,17 @@ module.exports = {
   },
 
   bye: function(req, res) {
-    Alergia.destroy({
-      afectado: req.param('id').substring(0,1),
-      alergia: req.param('id').substring(2)
-    }).exec(function(err){
+    var afectado;
+    var alergia;
+    for (var i = 0 ; i < req.param('id').length ; i++ ) {
+      if (req.param('id').substring(i,i+1) == "+") {
+        afectado = req.param('id').substring(0, i);
+        alergia = req.param('id').substring(i+1);
+      }
+    }
+    Alergia.query("delete from alergias where Paciente_idPaciente = "+afectado+" and Alergia like '%"+alergia+"%'", function(err, alergia){
       if (err) sails.log(err);
+
     });
     res.redirect('back');
   },

@@ -1,6 +1,8 @@
 <form action="/Paciente/new/" method="POST">
   <head>
-
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   </head>
   <body>
   <br>
@@ -15,12 +17,20 @@
       <form class="col s12">
         <div class="row">
           <div class="input-field col s12 m6 l6">
-            <input name="nombre" id="first_name" type="text" class="validate" required="" aria-required="true">
-            <label for="first_name">Nombre</label>
+            <input name="nombre1" id="first_name" type="text" class="validate" required="" aria-required="true">
+            <label for="first_name">Primer Nombre</label>
           </div>
           <div class="input-field col s12 m6 l6">
-            <input name="apellido" id="last_name" type="text" class="validate" required="" aria-required="true">
-            <label for="last_name">Apellido</label>
+            <input name="nombre2" id="first_name" type="text" class="validate" required="" aria-required="true">
+            <label for="first_name">Segundo Nombre</label>
+          </div>
+          <div class="input-field col s12 m6 l6">
+            <input name="apellido1" id="last_name" type="text" class="validate" required="" aria-required="true">
+            <label for="last_name">Primer Apellido</label>
+          </div>
+          <div class="input-field col s12 m6 l6">
+            <input name="apellido2" id="last_name" type="text" class="validate" required="" aria-required="true">
+            <label for="last_name">Segundo Apellido</label>
           </div>
           <div class="input-field col s12 m6 l6">
             <input name="cedula" id= "cedula" type="number" class="validate" required="" aria-required="true">
@@ -30,32 +40,11 @@
             <input name="medico" id= "medico" type="hidden" value="<%= medico.id %>" required="" aria-required="true">
           </div>
           <div class="input-field col s12 m6 l6">
-            <input name="correo" id="email" type="email" class="validate" required="" aria-required="true">
+            <input name="email" id="email" type="email" class="validate" required="" aria-required="true">
             <label for="email">Correo Electrónico</label>
           </div>
           <div class="input-field col s12 m6 l6" style="height: 50px" >
             <input name="fecha_nac" id="bday" type="text" class="datepicker" placeholder="Fecha de Nacimiento">
-          </div>
-          <div class="input-field col s12 m6 l6">
-            <select name="nacionalidad" id="nacionalidad">
-              <option value="" disabled selected>Seleccionar nacionalidad</option>
-              <option value="Venezolano">Venezolano(a)</option>
-              <option value="Extranjero">Extranjero(a)</option>
-              <option value="Pasaporte">Pasaporte</option>
-            </select>
-            <label>Nacionalidad</label>
-          </div>
-
-          <div class="input-field col s12 m6 l6">
-            <select name="nivel_educativo" id="nivelEducativo" >
-              <option value="" disabled selected>Seleccionar nivel educativo</option>
-              <option value="Ninguna">Ninguna</option>
-              <option value="Inicial">Inicial</option>
-              <option value="Media">Media</option>
-              <option value="Diversificado">Diversificada</option>
-              <option value="Superior">Superior</option>
-            </select>
-            <label>Nivel Educativo</label>
           </div>
           <div class="input-field col s12 m6 l6">
             <select name="sexo" id="genero" >
@@ -66,27 +55,35 @@
             <label>Genero</label>
           </div>
           <div class="input-field col s12 m6 l6">
-            <select name="edo_civil" id="edoCivil" >
-              <option value="" disabled selected>Seleccionar su estado civil</option>
-              <option value="Soltero">Soltero(a)</option>
-              <option value="Casado">Casado(a)</option>
-              <option value="Viudo">Viudo(a)</option>
+            <select name="TipoSangre" id="nacionalidad">
+              <option value="" disabled selected>Seleccionar tipo de sangre</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
             </select>
-            <label>Estado Civil</label>
+            <label>Tipo de sangre</label>
           </div>
           <div class="input-field col s12 m6 l6">
             <select name="estado" id="estado" >
               <option value="" disabled selected>Seleccionar estado</option>
-              <option value="Distrito Capital">Distrito Capital</option>
-              <option value="Miranda">Miranda</option>
-              <option value="Vargas">Vargas</option>
-              <option value="Monagas">Monagas</option>
+              <option value="Amazonas">Amazonas</option>
+              <option value="Anzoategui">Anzoátegui</option>
               <option value="Apure">Apure</option>
+              <option value="Aragua">Aragua</option>
+              <option value="Barinas">Barinas</option>
+              <option value="Bolivar">Bolívar</option>
+              <option value="Carabobo">Carabobo</option>
               <option value="Cojedes">Cojedes</option>
-              <option value="Tachira">Tachira</option>
-              <option value="Sucre">Sucre</option>
-              <option value="Nueva Esparta">Nueva Esparta</option>
+              <option value="Delta Amacuro">Delta Amacuro</option>
+              <option value="Distrito Capital">Distrito Capital</option>
               <option value="Falcon">Falcón</option>
+              <option value="Miranda">Miranda</option>
+              <option value="Lara">Lara</option>
             </select>
             <label>Estado</label>
           </div>
@@ -104,7 +101,17 @@
   <!--FIN-->
 <br><br><br><br>
 
-  
+
+  <script src="/js/dependencies/sails.io.js"></script>
+  <script src="/js/init.js"></script>
+  <script src="/js/materialize.js"></script>
+    <!--SCRIPTS END-->
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
   <script>
     $(document).ready(function() {
       $('select').material_select();
@@ -140,6 +147,11 @@
     }
 
   </script>
+    <!--SCRIPTS-->
+
+
+
+
 
   </body>
   </html>

@@ -8,7 +8,7 @@
 module.exports = {
 
   connection: 'myDataBase',
-  tableName: 'especialidad',
+  tableName: 'tiposangre',
   autoCreatedAt: false,
   autoUpdatedAt: false,
 

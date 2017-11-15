@@ -1,16 +1,16 @@
 <html lang="en">
 <head>
-  
+
 </head>
 <body>
 
 
 <!-- LISTA DE PACIENTES -->
-<div style="height: 75vh;" class="container">
+<div class="container">
   <div class="section">
     <div class="row">
       <br><br>
-      <h4 class="col s12 light center flow-text">Datos del paciente: <%= paciente.nombre %> <%= paciente.apellido %></h4>
+      <h4 class="col s12 light center flow-text">Datos del paciente: <%= paciente.nombre1 %> <%= paciente.nombre2%> <%= paciente.apellido1 %> <%= paciente.apellido2%></h4>
 
       <table class="highlight centered">
 
@@ -19,10 +19,10 @@
           <th class="teal-text text-accent-4">Cédula:</th>
           <th class="teal-text text-accent-4">Sexo:</th>
           <th class="teal-text text-accent-4">Fecha de Nacimiento:</th>
-          <th class="teal-text text-accent-4">Estado civil:</th>
-          <th class="teal-text text-accent-4">Nivel Educativo:</th>
-          <th class="teal-text text-accent-4">Nacionalidad:</th>
+          <th class="teal-text text-accent-4">Tipo de Sangre:</th>
           <th class="teal-text text-accent-4">Correo:</th>
+          <th class="teal-text text-accent-4">Estado:</th>
+          <th class="teal-text text-accent-4">Dirección:</th>
         </tr>
         </thead>
         <tbody>
@@ -30,10 +30,10 @@
           <td><%= paciente.cedula %></td>
           <td><%= paciente.sexo %></td>
           <td><%= paciente.fecha_nac %></td>
-          <td><%= paciente.edo_civil %></td>
-          <td><%= paciente.nivel_educativo %></td>
-          <td><%= paciente.nacionalidad %></td>
-          <td><%= paciente.correo %></td>
+          <td><%= tiposangre.tiposangre %></td>
+          <td><%= paciente.email %></td>
+          <td><%= estado.estado %></td>
+          <td><%= paciente.direccion %></td>
         </tr>
         </tbody>
       </table>

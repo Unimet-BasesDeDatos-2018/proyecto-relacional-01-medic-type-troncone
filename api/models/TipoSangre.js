@@ -8,7 +8,7 @@
 module.exports = {
 
   connection: 'myDataBase',
-  tableName: 'especialidad',
+  tableName: 'tiposangre',
   autoCreatedAt: false,
   autoUpdatedAt: false,
 
@@ -21,7 +21,7 @@ module.exports = {
       columnName: 'idTipoSangre'
     },
 
-    tiposangre:{
+    tipodesangre:{
       type: 'string',
       size: 5,
       required: true,

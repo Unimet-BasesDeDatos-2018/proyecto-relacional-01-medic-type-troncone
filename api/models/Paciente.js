@@ -70,9 +70,10 @@ module.exports = {
     },
 
     email: {
-      type: 'string',
+      type: 'email',
       size: 45,
-      columnName: 'Email'
+      columnName: 'Email',
+      required: true,
     },
 
     estado: {

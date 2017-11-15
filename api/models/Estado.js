@@ -21,7 +21,7 @@ module.exports = {
       columnName: 'idEstado'
     },
 
-    estado:{
+    estadovive:{
       type: 'string',
       size: 50,
       required: true,

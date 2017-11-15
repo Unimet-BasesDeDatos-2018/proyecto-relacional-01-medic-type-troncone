@@ -8,12 +8,20 @@
       <form class="col s12">
         <div class="row">
           <div class="input-field col s12 m6 l6">
-            <input name="nombre" id="first_name" type="text" class="validate" required="" aria-required="true">
-            <label for="first_name">Nombre</label>
+            <input name="nombre1" id="first_name" type="text" class="validate" required="" aria-required="true">
+            <label for="first_name">Primer Nombre</label>
           </div>
           <div class="input-field col s12 m6 l6">
-            <input name="apellido" id="last_name" type="text" class="validate" required="" aria-required="true">
-            <label for="last_name">Apellido</label>
+            <input name="nombre2" id="second_first_name" type="text" class="validate" required="" aria-required="true">
+            <label for="second_first_name">Segundo Nombre</label>
+          </div>
+          <div class="input-field col s12 m6 l6">
+            <input name="apellido1" id="last_name" type="text" class="validate" required="" aria-required="true">
+            <label for="last_name">Primer Apellido</label>
+          </div>
+          <div class="input-field col s12 m6 l6">
+            <input name="apellido2" id="second_lastname" type="text" class="validate" required="" aria-required="true">
+            <label for="second_lastname">Segundo Apellido</label>
           </div>
           <div class="input-field col s12 m6 l6">
             <input name="cedula" id= "cedula" type="number" class="validate" required="" aria-required="true">
@@ -27,25 +35,18 @@
             <input name="fecha_nac" id="bday" type="text" class="datepicker" placeholder="Fecha de Nacimiento">
           </div>
           <div class="input-field col s12 m6 l6">
-            <select name="nacionalidad" id="nacionalidad">
-              <option value="" disabled selected>Seleccionar nacionalidad</option>
-              <option value="Venezolano">Venezolano(a)</option>
-              <option value="Extranjero">Extranjero(a)</option>
-              <option value="Pasaporte">Pasaporte</option>
+            <select name="tiposangre" id="tiposangre">
+              <option value="" disabled selected>Seleccionar tipo de sangre</option>
+              <option value="1">O-</option>
+              <option value="2">O+</option>
+              <option value="3">A-</option>
+              <option value="4">A+</option>
+              <option value="5">B-</option>
+              <option value="6">B+</option>
+              <option value="7">AB-</option>
+              <option value="8">AB+</option>
             </select>
-            <label>Nacionalidad</label>
-          </div>
-
-          <div class="input-field col s12 m6 l6">
-            <select name="nivel_educativo" id="nivelEducativo" >
-              <option value="" disabled selected>Seleccionar nivel educativo</option>
-              <option value="Ninguna">Ninguna</option>
-              <option value="Inicial">Inicial</option>
-              <option value="Media">Media</option>
-              <option value="Diversificado">Diversificada</option>
-              <option value="Superior">Superior</option>
-            </select>
-            <label>Nivel Educativo</label>
+            <label>Tipo de Sangre</label>
           </div>
           <div class="input-field col s12 m6 l6">
             <select name="sexo" id="genero" >
@@ -56,27 +57,21 @@
             <label>Genero</label>
           </div>
           <div class="input-field col s12 m6 l6">
-            <select name="edo_civil" id="edoCivil" >
-              <option value="" disabled selected>Seleccionar su estado civil</option>
-              <option value="Soltero">Soltero(a)</option>
-              <option value="Casado">Casado(a)</option>
-              <option value="Viudo">Viudo(a)</option>
-            </select>
-            <label>Estado Civil</label>
-          </div>
-          <div class="input-field col s12 m6 l6">
             <select name="estado" id="estado" >
               <option value="" disabled selected>Seleccionar estado</option>
-              <option value="Distrito Capital">Distrito Capital</option>
-              <option value="Miranda">Miranda</option>
-              <option value="Vargas">Vargas</option>
-              <option value="Monagas">Monagas</option>
-              <option value="Apure">Apure</option>
-              <option value="Cojedes">Cojedes</option>
-              <option value="Tachira">Tachira</option>
-              <option value="Sucre">Sucre</option>
-              <option value="Nueva Esparta">Nueva Esparta</option>
-              <option value="Falcon">Falcón</option>
+              <option value="1">Amazonas</option>
+              <option value="2">Anzoategui</option>
+              <option value="3">Apure</option>
+              <option value="4">Aragua</option>
+              <option value="5">Barinas</option>
+              <option value="6">Bolivar</option>
+              <option value="7">Carabobo</option>
+              <option value="8">Cojedes</option>
+              <option value="9">Delta Amacuro</option>
+              <option value="10">Distrito Capital</option>
+              <option value="11">Falcon</option>
+              <option value="12">Miranda</option>
+              <option value="13">Lara</option>
             </select>
             <label>Estado</label>
           </div>

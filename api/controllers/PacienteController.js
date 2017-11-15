@@ -18,18 +18,19 @@ module.exports = {
   nuevoPaciente: function(req, res) {
     Paciente.create({
       cedula: req.param('cedula'),
-      nombre: req.param('nombre'),
-      apellido: req.param('apellido'),
-      edo_civil: req.param('edo_civil'),
-      direccion: req.param('direccion'),
-      nivel_educativo: req.param('nivel_educativo'),
-      fecha_nac: req.param('fecha_nac'),
-      nacionalidad: req.param('nacionalidad'),
       sexo: req.param('sexo'),
-      correo: req.param('correo'),
-      estado: req.param('estado')
+      nombre1: req.param('nombre1'),
+      nombre2: req.param('nombre2'),
+      apellido1: req.param('apellido1'),
+      apellido2: req.param('apellido2'),
+      fecha_nac: req.param('fecha_nac'),
+      direccion: req.param('direccion'),
+      email: req.param('correo'),
+      estado: req.param('estado'),
+      tiposangre: req.param('tiposangre'),      
     }).exec( function (err, paciente){
       if (err || !paciente ) {
+        sails.log(err);
         return;
       }
     });
@@ -138,10 +139,12 @@ module.exports = {
 
   showPaciente: function (req, res) {
     var pacientes = req.param('cedula');
-    Paciente.findOne({cedula: pacientes}).exec(function (err, paciente) {
-      Alergia.find({afectado: pacientes}).exec(function (err, alergia) {
-        Telefono.find({persona: pacientes}).exec(function (err, telefono) {
-            Tiene.find({paciente: pacientes}).exec(function (err, tiene) {
+    Paciente.findOne({cedula: pacientes}).exec(function (err, paciente) { 
+        Telefono.find({persona: paciente.id}).exec(function (err, telefono) {
+            Tiene.find({paciente: paciente.id}).exec(function (err, tiene) {
+              TipoSangre.find({id: paciente.tiposangre}).exec(function(err, tipodesangre){
+                Estado.find({id: paciente.estado}).exec(function(err, estadovive){
+
               var aux = '';
               if (tiene) {
               for (var i = 0 ; i < tiene.length ; i++ ) {
@@ -153,12 +156,13 @@ module.exports = {
                 }
               }
               var aux2 = Historia.query('select * from historia where '+aux, function(err, result){
-                if (!result) {
+                if (!result) { 
                   res.view({
                   paciente: paciente,
-                  alergias: alergia,
                   telefonos: telefono,
-                  historias: null
+                  historias: null,
+                  tiposangre: tipodesangre,
+                  estado: estadovive,
                 });
                   return;
                 }
@@ -166,22 +170,26 @@ module.exports = {
                 aux2 = aux2;
                 res.view({
                   paciente: paciente,
-                  alergias: alergia,
                   telefonos: telefono,
-                  historias: aux2
+                  historias: aux2,
+                  tiposangre: tipodesangre[0],
+                  estado: estadovive[0],
                 });
               })
               }
               else {
                 res.view({
                   paciente: paciente,
-                  alergias: alergia,
                   telefonos: telefono,
-                  historias: null
+                  historias: null,
+                  tiposangre: tipodesangre,
+                  estado: estadovive,
                 });
               }
             });
-          });
+              });
+            });
+          
         });
       });
   },

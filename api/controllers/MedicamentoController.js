@@ -29,6 +29,34 @@ module.exports = {
       if (err) sails.log(err);
       res.redirect('back');
     });
+  },
+
+  editar: function(req, res) {
+    Medicamento.find({
+      id: req.param('id')
+    }).exec(function(err, medicamento){
+      if (err) sails.log(err);
+      if (JSON.stringify(medicamento).length <= 2) {
+        res.redirect('/404');
+      }
+      res.view({
+        medicamento: medicamento[0]
+      })
+    });
+  },
+
+  update: function(req, res) {
+    Medicamento.update({id: req.param('id')},{
+      nombreComercial: req.param('nombreComercial'),
+      efectosSec: req.param('efectosSec'),
+      contraindicaciones: req.param('contraindicaciones')
+    }).exec(function(err, medicamento){
+      if (err) sails.log(err);
+      if (!medicamento) {
+        res.redirect('/500');
+      }
+      res.redirect('/Medicamento/show/'+medicamento[0].id);
+    });
   }
 
 };

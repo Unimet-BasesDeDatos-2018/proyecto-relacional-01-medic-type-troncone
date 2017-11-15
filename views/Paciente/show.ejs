@@ -38,7 +38,7 @@
         </tbody>
       </table>
 
-<br>
+      <br>
 
       <table class="highlight centered">
 
@@ -49,6 +49,10 @@
           <th class="teal-text text-accent-4">Notas:</th>
           <th class="teal-text text-accent-4">Peso:</th>
           <th class="teal-text text-accent-4">Estatura:</th>
+          <th class="teal-text text-accent-4">Int.:</th>
+          <th class="teal-text text-accent-4">Diab.:</th>
+          <th class="teal-text text-accent-4">Hip.:</th>
+          <th class="teal-text text-accent-4">Fum.:</th>
           <th class="teal-text text-accent-4">Diagnóstico:</th>
           <th class="teal-text text-accent-4">Referido Por:</th>
           <th></th>
@@ -62,6 +66,10 @@
           <td><%= historias.Notas %></td>
           <td><%= historias.Peso %> Kg.</td>
           <td><%= historias.Estatura %> m.</td>
+          <td><%= intervenido %> </td>
+          <td><%= diabetico %> </td>
+          <td><%= hipertenso %> </td>
+          <td><%= fumador %> </td>
           <td><%= historias.Diagnostico %></td>
           <td><%= historias.Apellido %></td>
           <td>
@@ -129,7 +137,6 @@
         <a href="/Telefono/nuevo/<%= paciente.id %>" class="btn waves-effect waves-light teal accent-4" type="submit" name="action">Nuevo telefono</a>
       </div>
     </div>
-
   </div>
   <br><br>
 </div>
@@ -138,4 +145,3 @@
 
 </body>
 </html>
-

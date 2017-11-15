@@ -1,12 +1,15 @@
 <form action="/Historia/refrescar" method="POST">
   <head>
 
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+
   </head>
   <body>
 
   <br>
-
-
 
 
   <div class="container">
@@ -19,21 +22,50 @@
             <h4 class="flow-text center teal-text text-accent-4">Editar Historia</h4>
           </div>
 
-          <div class="input-field col s12 m6 l4">
+          <div class="input-field col s12 m6 l6">
             <input name="peso" id="icon_telephone" type="number" step="0.01" class="validate">
             <label for="icon_telephone">Peso</label>
           </div>
 
-          <div class="input-field col s12 m6 l4">
+          <div class="input-field col s12 m6 l6">
             <input name="estatura" id="icon_telephone" type="number" step="0.01" class="validate">
             <label for="icon_telephone">Estatura</label>
           </div>
 
-          <div class="input-field col s12 m6 l4">
+          <div class="col s12 m12 l12">
+            <h5 class="flow-text center teal-text text-accent-4">Condiciones del paciente</h5>
+          </div>
+          <p class="col s12 m3 l3 left-align">
+            <input type="checkbox" id="intervenido" name="intervenido"/>
+            <label for="intervenido">Fue intervenido</label>
+          </p>
+
+          <p class="col s12 m3 l3 left-align">
+            <input type="checkbox" id="diabetico" name="diabetico"/>
+            <label for="diabetico">Es diabético</label>
+          </p>
+
+          <p class="col s12 m3 l3 left-align">
+            <input type="checkbox" id="hipertenso" name="hipertenso"/>
+            <label for="hipertenso">Es hipertenso</label>
+          </p>
+
+          <p class="col s12 m3 l3 left-align">
+            <input type="checkbox" id="fumador" name="fumador"/>
+            <label for="fumador">Es fumador</label>
+          </p>
+
+
+          <div class="input-field col s12 m6 l6 ">
             <input name="fechaHist" type="text" class="datepicker">
             <label for="icon_telephone">Fecha</label>
           </div>
 
+
+          <div class="input-field col s12 m6 l6">
+            <textarea name="notas" id="textarea1" class="materialize-textarea" data-length="120"></textarea>
+            <label for="textarea1">Notas</label>
+          </div>
 
           <div class="input-field col s12 m6 l6">
             <textarea name="sintomas" id="textarea1" class="materialize-textarea" data-length="120"></textarea>
@@ -41,8 +73,8 @@
           </div>
 
           <div class="input-field col s12 m6 l6">
-            <textarea name="notas" id="textarea1" class="materialize-textarea" data-length="120"></textarea>
-            <label for="textarea1">Notas</label>
+            <textarea name="diagnostico" id="textarea1" class="materialize-textarea" data-length="120"></textarea>
+            <label for="textarea1">Diagnóstico</label>
           </div>
 
           <center>
@@ -55,43 +87,12 @@
 
 
   </div>
-<br><br>
 
-  <script>
-    $(document).ready(function() {
-      $('select').material_select();
 
-      $('.datepicker').pickadate({
-        selectMonths: true, // Creates a dropdown to control month
-        selectYears: 200, // Creates a dropdown of 15 years to control year,
-        today: 'Hoy',
-        clear: 'Limpiar',
-        close: 'Listo',
-        closeOnSelect: false // Close upon selecting a date,
-      });
-    });
-  </script>
-  <script type="text/javascript">
-    var Paciente;
-    function registrarPaciente(){
-      Paciente = {
-        name: document.getElementById("first_name").value,
-        apellido: document.getElementById("last_name").value,
-        cedula: document.getElementById("cedula").value,
-        correo: document.getElementById("email").value,
-        bday: document.getElementById("bday").value,
-        nacionalidad: document.getElementById("nacionalidad").value,
-        nivelEducativo: document.getElementById("nivelEducativo").value,
-        genero: document.getElementById("genero").value,
-        edoCivil: document.getElementById("edoCivil").value,
-        estado: document.getElementById("estado").value,
-        direccion: document.getElementById("direccion").value,
-      };
-      console.log("Datos en obj Paciente.");
-      //Querys aqui palante ToDo...
-    }
 
-  </script>
+  <br><br>
+
+
 
   </body>
   </html>

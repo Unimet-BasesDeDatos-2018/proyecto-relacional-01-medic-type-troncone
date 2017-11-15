@@ -41,13 +41,13 @@ module.exports = {
     TipoSangre.find({tiposangre: req.param('TipoSangre')}).exec(function(err, tipo){
       if (err || !tipo) {
         sails.log(err);
-        res.redirect('505');
+        res.redirect('/500');
       }
       else {
         Estado.query("SELECT * FROM estado where Estado like '%"+req.param('estado')+"%'", function(err, estado){
           if (err || !estado) {
             sails.log(err);
-            res.redirect('505');
+            res.redirect('/500');
           }
           else {
             Paciente.find({cedula: req.param('cedula')}).exec(function(err, paciente){
@@ -133,7 +133,6 @@ module.exports = {
                         aux += ('idHistoria = '+tiene[i].historia+' or ');
                       }
                     }
-                    sails.log(aux);
                     var aux2 = Historia.query('select historia.*, medico.Apellido from medico\n' +
                       'inner join historia\n' +
                       'on historia.ReferidoPor = medico.idMedico and ('+aux+')', function(err, result){
@@ -143,6 +142,34 @@ module.exports = {
                       }
                       aux2 = JSON.parse(JSON.stringify(result));
                       aux2 = aux2;
+                      var intervenido;
+                      var diabetes;
+                      var hipertenso;
+                      var fumador;
+                      if ( aux2[0].Intervenido == 1 ) {
+                        intervenido = "Sí";
+                      }
+                      else {
+                        intervenido = "No";
+                      }
+                      if ( aux2[0].Diabetes == 1 ) {
+                        diabetes = "Sí";
+                      }
+                      else {
+                        diabetes = "No";
+                      }
+                      if ( aux2[0].Hipertenso == 1 ) {
+                        hipertenso = "Sí";
+                      }
+                      else {
+                        hipertenso = "No";
+                      }
+                      if ( aux2[0].Fumador == 1 ) {
+                        fumador = "Sí";
+                      }
+                      else {
+                        fumador = "No";
+                      }
                       res.view({
                         tiposangre: tiposangre[0],
                         paciente: paciente,
@@ -150,6 +177,10 @@ module.exports = {
                         telefonos: telefono,
                         medico: medico,
                         estado: estado[0],
+                        intervenido: intervenido,
+                        hipertenso: hipertenso,
+                        diabetico: diabetes,
+                        fumador: fumador,
                         historias: aux2
                       });
                     })
@@ -162,6 +193,10 @@ module.exports = {
                       medico: medico,
                       tiposangre: tiposangre[0],
                       estado: estado[0],
+                      intervenido: null,
+                      hipertenso: null,
+                      diabetico: null,
+                      fumador: null,
                       historias: null,
                     });
                   }

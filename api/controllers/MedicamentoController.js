@@ -61,7 +61,8 @@ module.exports = {
 
   verMedicamentos: function(req,res) {
     var aux = req.param('id');
-    Medicamento.query("select medicamento.idMedicamento, medicamento.NomComercial from medicamento inner join (select Medicamento_idMedicamento from compactivos where CompActivos like concat('%','"+aux+"','%')) as tablita on medicamento.idMedicamento = tablita.Medicamento_idMedicamento", function(err, result){
+    Medicamento.query("select medicamento.idMedicamento, medicamento.NomComercial from medicamento"+
+    'inner join (select Medicamento_idMedicamento from compactivos where CompActivos like concat('%','"+aux+"','%')) as tablita on medicamento.idMedicamento = tablita.Medicamento_idMedicamento", function(err, result){
       if (err) sails.log(err);
       if (result) {
         aux = JSON.parse(JSON.stringify(result));
@@ -83,9 +84,9 @@ module.exports = {
 
   verNoTienen: function(req, res) {
     var aux = req.param('id');
-    Medicamento.query("select medicamento.idMedicamento, medicamento.NomComercial from medicamento\n" +
-      "left outer join (select compactivos.* from compactivos where CompActivos like concat('%','"+aux+"','%')) as tablita\n" +
-      "on medicamento.idMedicamento = tablita.Medicamento_idMedicamento where tablita.CompActivos is null", function(err, result){
+    Medicamento.query('Select medicamento.idMedicamento, medicamento.NomComercial from compactivos '+
+    'LEFT OUTER JOIN medicamento ON compactivos.Medicamento_idMedicamento = medicamento.idMedicamento ' +
+    'where compactivos.CompActivos != \"'+aux+'\";', function(err, result){
       if (err) sails.log(err);
       if (result) {
         aux = JSON.parse(JSON.stringify(result));

@@ -14,8 +14,9 @@ module.exports = {
     Medico.find({
       licencia: licencia
     }).exec(function(err, medico){
+      sails.log(medico);
       if (err) sails.log(err);
-      if (medico) {
+      if (medico[0]) {
         Tiene.find({
           medico: medico[0].id
         }).exec(function(err, tiene){
@@ -42,6 +43,7 @@ module.exports = {
                 if ( count > tiene.length - 1) {
                   Paciente.query("select * from paciente where idPaciente in ("+pacientes+"0)", function(err, respuestPac){
                     if (err) sails.log(err);
+
                     res.view({
                       paciente: JSON.parse(JSON.stringify(respuestPac)),
                       medico: medico
@@ -80,13 +82,11 @@ module.exports = {
 
   listaMedicos: function(req, res){
     var idEspec = req.param('idEspecialidad');
-    sails.log(idEspec);
     if(idEspec == 0){
     var query = Medico.query('Select medico.*, especialidad.Especialidad from Medico '+
       'INNER JOIN especialidades ON medico.idMedico = especialidades.Medico_idMedico '+
       'INNER JOIN especialidad ON especialidades.Especialidad_idEspecialidad = especialidad.idEspecialidad;', function(err, result){
        if(err) sails.log(err);
-       sails.log(result);
         res.view({
           matriz: result,
           tipo: "todos los campos",
@@ -99,7 +99,6 @@ module.exports = {
       'INNER JOIN especialidad ON especialidades.Especialidad_idEspecialidad = especialidad.idEspecialidad '+
       'WHERE especialidad.idEspecialidad = '+idEspec+';', function(err, result){
        if(err) sails.log(err);
-       sails.log(result);
         res.view({
           matriz: result,
           tipo: result[0].Especialidad,

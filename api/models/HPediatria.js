@@ -27,7 +27,7 @@ module.exports = {
 
     diametroBrazo:{
       type:'float',
-      columnName: 'DiametroCabeza'
+      columnName: 'DiametroBrazos'
     },
 
     crecimiento:{
@@ -35,9 +35,5 @@ module.exports = {
       size: 200,
       columnName: 'Crecimiento'
     }
-
-
-
-
   }
 };

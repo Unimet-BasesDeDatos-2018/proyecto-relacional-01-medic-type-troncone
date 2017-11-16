@@ -18,17 +18,15 @@ module.exports = {
     alergia: {
       type: 'string',
       required: true,
-      size: 100,
+      size: 45,
       columnName: 'Alergia'
     },
 
     afectado: {
       type: 'integer',
       required: true,
-      primaryKey: true,
-      columnName: 'idAlergias'
+      columnName: 'Paciente_idPaciente'
     }
 
   }
 };
-

@@ -11,39 +11,37 @@
 </head>
 <body>
 
-<div style="text-align:center">
+
+<div class="container">
+  <div class="section">
   <div class="row">
-    <form method="POST" action="/Medico/topMedicos/" class="col s5 m5 l5" style="display: inline;">  
-      <a type="submit" href="/Medico/topMedicos" class="col s6 m6 l6 waves-effect waves-light btn-large ">Mejores Medicos</a>
+
+    <form method="POST" action="/Medico/topMedicos/" class="col l4">  
+      <a type="submit" href="/Medico/topMedicos" class=" waves-effect waves-light btn-large ">Mejores Medicos</a>
     </form>
-    <form method="POST" action="/Medico/listaMedicos/">
-    <div class="input-field col s5 m5 l5">
+    <form  method="POST" action="/Medico/listaMedicos/" class="col l8">
+  <button class="btn waves-effect waves-light btn-large col l6" type="submit" name="action" value='0'>Ver medicos
+    <i class="material-icons right">send</i>
+  </button>  
+    <div style="margin-top: 0px; height: 55px;; color: whitesmoke;" class="input-field card-panel teal lighten-1 col l6">
       <select name="idEspecialidad" id="idEspecialidad">
         <option value="0" selected>Todos</option>
         <option value="1">Pediatra</option>
         <option value="2">Oftalmologo</option>
         <option value="3">Oncologo</option>
       </select>
-    <label>Especialidades</label>
   </div> 
-  <button class="btn waves-effect waves-light col s5 m5 l5" type="submit" name="action" value='0'>Filtrar Medicos
-    <i class="material-icons right">send</i>
-  </button>  
   </form>
-</div>
+
 </div>
 
-<!-- LISTA DE PACIENTES -->
-<div class="container">
-  <div class="section">
+
+
     <div class="row">
       <br><br>
       <h4 class="col s12 light center">Datos del paciente:</h4>
 
-      <div class="container">
-
-        <div class="row">
-          <form class="col s12">
+          <form>
             <div class="center-align col s12 m12 l12">
               <h1 class="flow-text">
                 <i class="material-icons prefix">account_circle</i>
@@ -129,7 +127,7 @@
         </tbody>
         <% })%>
       </table>
-    </div>
+
     <div class="row">
       <br>
       <div class="col s12 m12 l12 center">
@@ -137,7 +135,7 @@
       </div>
     </div>
 
-  </div>
+  
   <br><br>
 </div>
 <!-- FIN LISTA DE PACIENTES -->

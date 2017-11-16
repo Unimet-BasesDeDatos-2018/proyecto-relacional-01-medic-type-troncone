@@ -212,6 +212,7 @@ module.exports = {
   showPaciente: function (req, res) {
     var pacientes = req.param('cedula');
     Paciente.findOne({cedula: pacientes}).exec(function (err, paciente) { 
+        if(paciente){
         Telefono.find({persona: paciente.id}).exec(function (err, telefono) {
             Tiene.find({paciente: paciente.id}).exec(function (err, tiene) {
               TipoSangre.find({id: paciente.tiposangre}).exec(function(err, tipodesangre){
@@ -229,6 +230,7 @@ module.exports = {
               }
               var aux2 = Historia.query('select * from historia where '+aux, function(err, result){
                 if (!result) { 
+                sails.log(1);
                   res.view({
                   paciente: paciente,
                   telefonos: telefono,
@@ -240,16 +242,18 @@ module.exports = {
                 }
                 aux2 = JSON.parse(JSON.stringify(result));
                 aux2 = aux2;
+                sails.log(2);
                 res.view({
                   paciente: paciente,
                   telefonos: telefono,
                   historias: aux2,
-                  tiposangre: tipodesangre[0],
-                  estado: estadovive[0],
+                  tiposangre: tipodesangre,
+                  estado: estadovive,
                 });
               })
               }
               else {
+                sails.log(3);
                 res.view({
                   paciente: paciente,
                   telefonos: telefono,
@@ -263,6 +267,9 @@ module.exports = {
             });
           
         });
+    }else{
+      res.redirect("/");
+    }
       });
   },
 

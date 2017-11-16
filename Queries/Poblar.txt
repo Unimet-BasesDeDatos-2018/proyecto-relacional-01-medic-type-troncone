@@ -43,16 +43,6 @@ into table tiene
 fields terminated by ';'
 lines terminated by '\n';
 
-load data local infile "C:/Users/Gabriele Troncone/Bases-de-datos/DATOS/Alergias.csv"
-into table alergias
-fields terminated by ';'
-lines terminated by '\n';
-
-load data local infile "C:/Users/Gabriele Troncone/Bases-de-datos/DATOS/Tendra.csv"
-into table tendra
-fields terminated by ';'
-lines terminated by '\n';
-
 load data local infile "C:/Users/Gabriele Troncone/Bases-de-datos/DATOS/Patologia.csv"
 into table patologia
 fields terminated by ';'
@@ -88,11 +78,6 @@ into table tratamiento
 fields terminated by ';'
 lines terminated by '\n';
 
-load data local infile "C:/Users/Gabriele Troncone/Bases-de-datos/DATOS/SimilarA.csv"
-into table similara
-fields terminated by ';'
-lines terminated by '\n';
-
 load data local infile "C:/Users/Gabriele Troncone/Bases-de-datos/DATOS/Telefonos.csv"
 into table telefonos
 fields terminated by ';'
@@ -100,6 +85,11 @@ lines terminated by '\n';
 
 load data local infile "C:/Users/Gabriele Troncone/Bases-de-datos/DATOS/Consultorio.csv"
 into table consultorio
+fields terminated by ';'
+lines terminated by '\n';
+
+load data local infile "C:/Users/Gabriele Troncone/Bases-de-datos/DATOS/Alergias.csv"
+into table alergias
 fields terminated by ';'
 lines terminated by '\n';
 

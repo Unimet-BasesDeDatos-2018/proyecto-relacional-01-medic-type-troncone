@@ -21,6 +21,34 @@ module.exports = {
   },
 
   'new': function(req, res) {
+    var fumador;
+    var diabetes;
+    var intervenido;
+    var hipertenso;
+    if (req.param('fumador') == 'on') {
+      fumador = 1;
+    }
+    else {
+      fumador = 0;
+    }
+    if (req.param('diabetico') == 'on') {
+      diabetes = 1;
+    }
+    else {
+      diabetes = 0;
+    }
+    if (req.param('intervenido') == 'on') {
+      intervenido = 1;
+    }
+    else {
+      intervenido = 0;
+    }
+    if (req.param('hipertenso') == 'on') {
+      hipertenso = 1;
+    }
+    else {
+      hipertenso = 0;
+    }
     Paciente.findOne(req.param('paciente')).exec(function(err, paciente){
       Medico.findOne(req.param('medico')).exec(function(err, medico){
          Historia.create({
@@ -29,7 +57,12 @@ module.exports = {
           peso: req.param('peso'),
           estatura: req.param('estatura'),
           notas: req.param('notas'),
-          diagnostico: req.param('diagnostico')
+          diagnostico: req.param('diagnostico'),
+          referidoPor: '10000',
+          diabetes: diabetes,
+          intervenido: intervenido,
+          hipertenso: hipertenso,
+          fumador: fumador
          }).exec(function(err, historia){
            Tiene.create({
              paciente: paciente.id,
@@ -61,7 +94,47 @@ module.exports = {
   },
 
   refrescar: function(req, res) {
-    Historia.update(req.param('id'), req.params.all(), function(err){
+    var fumador;
+    var diabetes;
+    var intervenido;
+    var hipertenso;
+    if (req.param('fumador') == 'on') {
+      fumador = 1;
+    }
+    else {
+      fumador = 0;
+    }
+    if (req.param('diabetico') == 'on') {
+      diabetes = 1;
+    }
+    else {
+      diabetes = 0;
+    }
+    if (req.param('intervenido') == 'on') {
+      intervenido = 1;
+    }
+    else {
+      intervenido = 0;
+    }
+    if (req.param('hipertenso') == 'on') {
+      hipertenso = 1;
+    }
+    else {
+      hipertenso = 0;
+    }
+    Historia.update(req.param('id'), {
+      fechaHist: req.param('fechaHist'),
+      sintomas: req.param('sintomas'),
+      peso: req.param('peso'),
+      estatura: req.param('estatura'),
+      notas: req.param('notas'),
+      diagnostico: req.param('diagnostico'),
+      referidoPor: '10000',
+      diabetes: diabetes,
+      intervenido: intervenido,
+      hipertenso: hipertenso,
+      fumador: fumador
+    }, function(err){
       if (err) sails.log(err);
       res.redirect('back');
     });

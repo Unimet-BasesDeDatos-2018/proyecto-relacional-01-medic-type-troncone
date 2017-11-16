@@ -114,9 +114,17 @@ module.exports = {
   },
 
   cambio: function(req, res) {
+    var persona;
+    var telefono;
+    for (var i = 0 ; i < req.param('id').length ; i++ ) {
+      if (req.param('id').substring(i,i+1) == "+") {
+        persona = req.param('id').substring(0, i);
+        telefono = req.param('id').substring(i+1);
+      }
+    }
     Telefono.find({
-      persona: req.param('id').substring(0,1),
-      telefono: req.param('id').substring(2)
+      persona: persona,
+      telefono: telefono
     }).exec(function(err, telefono){
       res.view({
         telefono:telefono

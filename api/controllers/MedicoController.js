@@ -9,19 +9,58 @@ module.exports = {
 
   mostrarPacientes: function (req, res) {
     var licencia = req.param('licencia');
-    Medico.find({Licencia: licencia}).exec( function(err, medico) {
-        var query = Paciente.query('SELECT * FROM paciente '+
-                               'INNER JOIN tiene ON tiene.Paciente_idPaciente = paciente.idPaciente '
-                               + 'INNER JOIN medico ON  tiene.Medico_idMedico = medico.idMedico '+
-                               ' where medico.Licencia = ' + licencia + ';', function(err, paciente) {
-          var aux = JSON.parse(JSON.stringify(paciente));
-          res.view({
-            paciente: aux,
-            medico: medico
-          })
-        })
+    var pacientes = "";
+    var historias = "";
+    Medico.find({
+      licencia: licencia
+    }).exec(function(err, medico){
+      if (err) sails.log(err);
+      if (medico) {
+        Tiene.find({
+          medico: medico[0].id
+        }).exec(function(err, tiene){
+          if (JSON.stringify(tiene).length <= 2) {
+            res.redirect('404');
+          }
+          var aux;
+          var aux2;
+          var count = 0;
+          if (err) sails.log(err);
+          if (tiene) {
+            for (var i = 0 ; i < tiene.length ; i++ ) {
+              aux2 = JSON.stringify(tiene[i].historia);
+              aux2 += ",";
+              historias = aux2.concat(historias);
+              Paciente.findOne(tiene[i].paciente).exec(function (err, paciente) {
+                if (JSON.stringify(paciente).length <= 2 ) {
+                  res.redirect('404');
+                }
+                aux = JSON.stringify(paciente.id);
+                count++;
+                aux += ",";
+                pacientes = aux.concat(pacientes);
+                if ( count > tiene.length - 1) {
+                  Paciente.query("select * from paciente where idPaciente in ("+pacientes+"0)", function(err, respuestPac){
+                    if (err) sails.log(err);
+                    res.view({
+                      paciente: JSON.parse(JSON.stringify(respuestPac)),
+                      medico: medico
+                    })
+                  });
+                }
+              });
+            }
+          }
+          else {
+            res.redirect('404');
+          }
+        });
       }
-    );
+      else {
+        res.redirect('404');
+      }
+    });
+
   },
 
   topMedicos: function(req, res){

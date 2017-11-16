@@ -18,7 +18,7 @@ module.exports = {
     telefono: {
       type: 'string',
       required: true,
-      size: 20,
+      size: 16,
       columnName: 'Telefono'
     },
 

@@ -211,6 +211,7 @@ module.exports = {
 
   showPaciente: function (req, res) {
     var pacientes = req.param('cedula');
+    sails.log(pacientes);
     Paciente.findOne({cedula: pacientes}).exec(function (err, paciente) { 
         if(paciente){
         Telefono.find({persona: paciente.id}).exec(function (err, telefono) {

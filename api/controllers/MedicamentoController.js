@@ -62,7 +62,7 @@ module.exports = {
   verMedicamentos: function(req,res) {
     var aux = req.param('id');
     Medicamento.query("select medicamento.idMedicamento, medicamento.NomComercial from medicamento"+
-    'inner join (select Medicamento_idMedicamento from compactivos where CompActivos like concat('%','"+aux+"','%')) as tablita on medicamento.idMedicamento = tablita.Medicamento_idMedicamento", function(err, result){
+    "inner join (select Medicamento_idMedicamento from compactivos where CompActivos like concat('%','"+aux+"','%')) as tablita on medicamento.idMedicamento = tablita.Medicamento_idMedicamento", function(err, result){
       if (err) sails.log(err);
       if (result) {
         aux = JSON.parse(JSON.stringify(result));

@@ -47,7 +47,7 @@ module.exports = {
     });
   },
 
-  borrar: function(req, res) {
+  /*borrar: function(req, res) {
     var medicamento;
     var compactivo;
     for (var i = 0 ; i < req.param('id').length ; i++ ) {
@@ -69,7 +69,7 @@ module.exports = {
         res.redirect('/500');
       }
     });
-  },
+  },*/
 
 };
 

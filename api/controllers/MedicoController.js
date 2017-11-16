@@ -67,12 +67,13 @@ module.exports = {
 
   topMedicos: function(req, res){
     var query = Medico.query('Select CONCAT(medico.Nombre, " ", medico.Apellido) AS NombreCompleto, '+
-     'especialidad.Especialidad, COUNT(Consulta.Medico_idMedico) As Consultas From Medico '+
+     'especialidad.Especialidad, COUNT(consulta.Medico_idMedico) As Consultas From medico '+
       'INNER JOIN consulta on medico.idMedico = consulta.Medico_idMedico ' +
       'INNER JOIN especialidades ON medico.idMedico = especialidades.Medico_idMedico ' +
       'INNER JOIN especialidad ON especialidades.Especialidad_idEspecialidad = especialidad.idEspecialidad ' +
       'GROUP BY consulta.Medico_idMedico '+
       'ORDER BY Consultas;', function(err, result){
+        sails.log(result);
         res.view({
           matriz : result,
         });
@@ -83,7 +84,7 @@ module.exports = {
   listaMedicos: function(req, res){
     var idEspec = req.param('idEspecialidad');
     if(idEspec == 0){
-    var query = Medico.query('Select medico.*, especialidad.Especialidad from Medico '+
+    var query = Medico.query('Select medico.*, especialidad.Especialidad from medico '+
       'INNER JOIN especialidades ON medico.idMedico = especialidades.Medico_idMedico '+
       'INNER JOIN especialidad ON especialidades.Especialidad_idEspecialidad = especialidad.idEspecialidad;', function(err, result){
        if(err) sails.log(err);
@@ -94,7 +95,7 @@ module.exports = {
       });
   }else{
     var idEspec = req.param('idEspecialidad');
-    var query = Medico.query('Select medico.*, especialidad.Especialidad from Medico '+
+    var query = Medico.query('Select medico.*, especialidad.Especialidad from medico '+
       'INNER JOIN especialidades ON medico.idMedico = especialidades.Medico_idMedico '+
       'INNER JOIN especialidad ON especialidades.Especialidad_idEspecialidad = especialidad.idEspecialidad '+
       'WHERE especialidad.idEspecialidad = '+idEspec+';', function(err, result){

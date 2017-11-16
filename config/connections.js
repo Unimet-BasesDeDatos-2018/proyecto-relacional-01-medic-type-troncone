@@ -40,21 +40,21 @@ module.exports.connections = {
   * Run: npm install sails-mysql                                             *
   *                                                                          *
   ***************************************************************************/
-/*    myDataBase: {
+    myDataBase: {
     adapter: 'sails-mysql',
     user: 'c7c9g5yk4zp9dv8g', //optional
     password: 'upqoffb3v2f3hn73', //optional
     host: 'kavfu5f7pido12mr.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
     database: 'eiqnlkkouujdvueu', //optional
-  }, */
+  }, 
 
-    myDataBase: {
+  /*  myDataBase: {
     adapter: 'sails-mysql',
     user: 'root', //optional
     password: '25217545max', //optional
     host: 'localhost',
     database: 'medictypedb', //optional
-  },
+  }, */
 
   /***************************************************************************
   *                                                                          *
